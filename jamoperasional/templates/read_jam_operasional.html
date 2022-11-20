@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+
+<style>
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px;
+        text-align: center;
+    }
+
+</style>
+
+{% endblock meta %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col">
+        <div class="table-responsive my-5">
+            <table class="table table-bordered table-striped" style="width: 500px;">
+                <thead>
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Hari</th>
+                    <th scope="col">Jam Buka</th>
+                    <th scope="col">Jam Tutup</th>
+                    <th scope="col">Aksi</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Senin</td>
+                        <td>10:00:00</td>
+                        <td>22:00:00</td>
+                        <td>
+                            <a href="../update/1/">Ubah</a>
+                            <br>
+                            <a href="../delete/">Hapus</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Selasa</td>
+                        <td>10:00:00</td>
+                        <td>22:00:00</td>
+                        <td>
+                            <a href="../update/1/">Ubah</a>
+                            <br>
+                            <a href="../delete/">Hapus</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Rabu</td>
+                        <td>10:00:00</td>
+                        <td>22:00:00</td>
+                        <td>
+                            <a href="../update/1/">Ubah</a>
+                            <br>
+                            <a href="../delete/">Hapus</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
