@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+
+<style>
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+</style>
+
+{% endblock meta %}
+
+{% block content %}
+<div class="row">
+    <div class="col">
+        <h2 class="lead pt-4 pb-3">FORM BUAT JAM OPERASIONAL</h1>
+
+        <div class="card">
+        <div class="card-body border-dark" style="width: 300px;">
+        <div class="d-flex justify-content-center">
+            <h3 class="lead py-2">Hari: Senin</h3>
+        </div>
+
+        <div class="pb-3 pt-2 d-flex justify-content-center">
+            <h3 class="lead py-2">Jam Buka</h3>
+            <input type="time" class="form-control">
+        </div>
+
+        <div class="pb-4 pt-2 d-flex justify-content-center">
+            <h3 class="lead py-2">Jam Tutup</h3>
+            <input type="time" class="form-control">
+        </div>
+
+        <input type="submit" class="btn my-4 border-dark" value="Simpan">
+        </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}
