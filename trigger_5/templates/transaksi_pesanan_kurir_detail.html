@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+
+<html>
+
+{% block meta %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+{% endblock meta %}
+{% block content %}
+
+<h>Ringkasan Pesanan</h>
+
+<p> Waktu Pemesanan: 2022-11-04 11:30:05 <br><br>
+
+Nama Pelanggan: Mikayla Putri <br>
+Jalan: Jalan Bahagia nomor 72 <br>
+Kecamatan: Cinere <br>
+Kota: Depok <br>
+Provinsi: Jawa Barat <br><br>
+
+Restoran: Warung Mantap Depok <br>
+Jalan: Jalan Sejahtera nomor 5 <br>
+Kecamatan: Bojongsari <br>
+Kota: Depok <br>
+Provinsi: Jawa Barat <br><br>
+
+Makanan yang dipesan: <br>
+Ayam Goreng (1) - [catatan bila ada] <br>
+Ice Cream (2) - [catatan bila ada] <br>
+Total Harga Makanan: 11000 <br>
+Total Diskon: 0 <br>
+Biaya Pengantaran: 4000 <br>
+Total Biaya: 15000 <br>
+Jenis Pembayaran: RestoPay <br><br>
+
+Status Pembayaran: Berhasil <br>
+Status Pesanan: Pesanan Diantar <br><br>
+
+Kurir: Doni Suryana <br>
+Plat Kendaraan: B 0001 KNN <br>
+Jenis Kendaraan: Motor <br>
+Merk Kendaraan: Honda Vario <br>
+
+</p>
+{% include 'navbar_kurir.html' %}
+<a class="btn btn-secondary" href="{% url 'trigger_5:show_transaksi_pesanan_kurir' %}">Kembali</a></td>
+{% endblock %}
