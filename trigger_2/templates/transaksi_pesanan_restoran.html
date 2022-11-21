@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+
+<style>
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px;
+        text-align: center;
+    }
+
+</style>
+
+{% endblock meta %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col">
+        <div class="table-responsive my-5">
+            <table class="table table-bordered table-striped" style="width: 500px;">
+                <thead>
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Nama Pelanggan</th>
+                    <th scope="col">Waktu Pesanan Dibuat</th>
+                    <th scope="col">Status Pesanan</th>
+                    <th scope="col">Aksi</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Lind Fenlon</td>
+                        <td>2020-12-05 13:08:54.193</td>
+                        <td>Menunggu Konfirmasi Restoran</td>
+                        <td>
+                            <a href="../detail/1/">Detail</a>
+                            <br>
+                            <a href="../update/1/">Konfirmasi</a>
+                        </td>
+                    </tr>                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
