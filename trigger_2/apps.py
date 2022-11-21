@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class JamoperasionalConfig(AppConfig):
+class Trigger2Config(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'jamoperasional'
+    name = 'trigger_2'

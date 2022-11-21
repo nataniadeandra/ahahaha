@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+
+<style>
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+</style>
+
+{% endblock meta %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col">
+        <h2 class="lead pt-4 pb-3">RestoPay</h1>
+
+        <div class="card">
+        <div class="card-body border-dark" style="width: 500px;">
+
+        <div class="pb-3 pt-2 d-flex justify-content-center">
+            <h3 class="lead py-2">Saldo: 120000</h3>
+        </div>
+
+        <div class="pb-4 pt-2 d-flex justify-content-center">
+            <h3 class="lead py-2">Nominal Penarikan:</h3>
+            <input type="text" class="form-control">
+        </div>
+
+        <div class="border border-dark rounded px-3 py-1 mt-4 my-2"><a href="../isi/1/" class="text-decoration-none text-dark">Isi Saldo</a></div>
+        <div class="border border-dark rounded px-2 py-1 m-3"><a href="../tarik/1/" class="text-decoration-none text-dark">Tarik Saldo</a></div>
+
+        </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}
