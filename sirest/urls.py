@@ -19,4 +19,5 @@ from django.urls import include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('jamoperasional/', include('jamoperasional.urls')),
+    path('trigger_2/', include('trigger_2.urls')),
 ]
