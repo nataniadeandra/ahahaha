@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('trigger-5/', include('trigger_5.urls')),
     path('trigger_2/', include('trigger_2.urls')),
+    path('dashboard/', include('dashboard.urls')),
 ]

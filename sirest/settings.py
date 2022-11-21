@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'trigger_5',
     'trigger_2',
+    'dashboard',
 ]
 
 MIDDLEWARE = [
