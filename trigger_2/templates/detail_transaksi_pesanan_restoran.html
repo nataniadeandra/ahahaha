@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+
+<style>
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+</style>
+
+{% endblock meta %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col">
+        <h2 class="lead pt-4 pb-3">Ringkasan Pesanan</h1>
+
+        <div class="card">
+        <div class="card-body border-dark" style="width: 500px;">
+
+        <div class="pb-3 pt-2 d-flex justify-content-center">
+            <h3 class="lead pt-2">Waktu Pemesanan: 2020-12-05 13:08:54.193</h3>
+        </div>
+
+        <div class="pb-3 pt-2 d-flex justify-content-center">
+            <h3 class="lead pt-2">Nama Pelanggan: Lind Fenlon</h3>
+            <h3 class="lead pt-2">Jalan: Jalan Andir V No. 11</h3>
+            <h3 class="lead pt-2">Kecamatan: Andir</h3>
+            <h3 class="lead pt-2">Kota: Bandung</h3>
+            <h3 class="lead pt-2">Provinsi: Jawa Barat</h3>
+        </div>
+
+        <div class="pb-3 pt-2 d-flex justify-content-center">
+            <h3 class="lead pt-2">Restoran: Bones</h3>
+            <h3 class="lead pt-2">Jalan: Jalan Asia Afrika</h3>
+            <h3 class="lead pt-2">Kecamatan: Braga</h3>
+            <h3 class="lead pt-2">Kota: Bandung</h3>
+            <h3 class="lead pt-2">Provinsi: Jawa Barat</h3>
+        </div>
+
+        <div class="pb-3 pt-2 d-flex justify-content-center">
+            <h3 class="lead pt-2">Makanan yang dipesan</h3>
+            <h3 class="lead pt-2"> • Milk Chocolate Snacks (3)</h3>
+            <h3 class="lead pt-2">Total Harga Makanan: 10</h3>
+            <h3 class="lead pt-2">Total Diskon: 5</h3>
+            <h3 class="lead pt-2">Biaya Pengantaran: 15</h3>
+            <h3 class="lead pt-2">Total Biaya: 20</h3>
+            <h3 class="lead pt-2">Jenis Pembayaran: RestoPay Paylater</h3>
+        </div>
+
+        <div class="pb-3 pt-2 d-flex justify-content-center">
+            <h3 class="lead pt-2">Status Pembayaran: Berhasil</h3>
+            <h3 class="lead pt-2">Status Pesanan: Menunggu Konfirmasi Restoran</h3>
+        </div>
+
+        <div class="pb-3 pt-2 d-flex justify-content-center">
+            <h3 class="lead pt-2">Kurir: -</h3>
+            <h3 class="lead pt-2">Plat Kendaraan: -</h3>
+            <h3 class="lead pt-2">Jenis Kendaraan: -</h3>
+            <h3 class="lead pt-2">Merk Kendaraan: -</h3>
+        </div>
+
+        <div class="border border-dark rounded px-3 py-1 mt-4 my-2"><a href="../../read/" class="text-decoration-none text-dark">Kembali</a></div>
+        </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}
