@@ -9,9 +9,9 @@
 <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 {% endblock meta %}
 {% block content %}
-
-<h>FORM BUAT BAHAN MAKANAN</h>
 {% include 'navbar_admin.html' %}
+<h>FORM BUAT BAHAN MAKANAN</h>
+
 <form method="POST" id = "form">
     {% csrf_token %}
     {{form.as_p}}
