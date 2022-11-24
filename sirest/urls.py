@@ -21,4 +21,5 @@ urlpatterns = [
     path('trigger-5/', include('trigger_5.urls')),
     path('trigger_2/', include('trigger_2.urls')),
     path('dashboard/', include('dashboard.urls')),
+    path('trigger-4/', include('trigger_4.urls')),
 ]
