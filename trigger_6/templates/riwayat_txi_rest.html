@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+
+{% endblock meta %}
+
+{% block content %}
+
+{% include 'navbar_restoran.html' %}
+<div class="d-flex flex-row justify-content-center">
+    <div class="d-flex flex-column justify-content-center">
+        
+        <h2 class="lead pt-4 pb-3">RIWAYAT TRANSAKSI RESTO</h1>
+        
+        <!-- cards -->
+        <div class="card" style="width: 900px;">
+
+            <div class="p-2 border-dark d-flex flex-row justify-content-start" style="width: 900px;">
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 180px;">
+                    <h3 class="fs-6 text-wrap fw-normal">Nama Pelanggan</h3>
+                </div>
+
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 160px;">
+                    <h3 class="fs-6 text-wrap fw-normal">Nama Kurir</h3>
+                </div>
+
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 200px;">
+                    <h3 class="fs-6 text-wrap fw-normal">Waktu Pesanan Dibuat</h3>
+                </div>
+
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 180px;">
+                    <h3 class="fs-6 text-wrap fw-normal">Status Pesanan</h3>
+                </div>
+                
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 200px;">
+                    <h3 class="fs-6 text-wrap fw-normal">Aksi</h3>
+                </div>
+            </div>
+
+            
+            <div class="p-2 border-dark d-flex flex-row justify-content-start" style="width: 900px;">
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 180px;">
+                    <h3 class="fs-6 text-wrap fw-bold">Mikayla Putri</h3>
+                </div>
+
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 160px;">
+                    <h3 class="fs-6 text-wrap fw-semibold">Doni Suryana</h3>
+                </div>
+
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 200px;">
+                    <h3 class="fs-6 text-wrap fw-semibold">11:30:05</h3>
+                </div>
+
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 180px;">
+                    <div class="d-flex border border-success rounded-4 bg-success py-1 px-1 gap-2ss align-items-center text-success" style="--bs-bg-opacity: .2;"> 
+                        <div class="px-2">
+                            <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="4.67761" cy="4.39967" r="4" fill="#198754"/>
+                            </svg>        
+                        </div>
+                        Pesanan Selesai
+                    </div>
+                </div>
+                
+                <div class="d-flex flex-row justify-content-start p-2">
+                    <div style="width: 60%;">
+                        <a href="../detail_riwayat_transaksi/1/" type="button" class="btn btn-primary">Detail</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-2 border-dark d-flex flex-row justify-content-start" style="width: 900px;">
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 180px;">
+                    <h3 class="fs-6 text-wrap fw-bold">Kennedy Faca</h3>
+                </div>
+
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 160px;">
+                    <h3 class="fs-6 text-wrap fw-semibold text-secondary text-opacity-25">None</h3>
+                </div>
+
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 200px;">
+                    <h3 class="fs-6 text-wrap fw-semibold">09:00:01</h3>
+                </div>
+
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 180px;">
+                    <div class="d-flex border border-danger rounded-4 bg-danger py-1 px-1 gap-2ss align-items-center text-danger" style="--bs-bg-opacity: .2;"> 
+                        <div class="px-2">
+                            <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="4.67761" cy="4.39967" r="4" fill="#dc3545"/>
+                            </svg>        
+                        </div>
+                        Pesanan Batal
+                    </div>
+                </div>
+
+                <div class="d-flex flex-row justify-content-start p-2">
+                    <div style="width: 60%;">
+                        <a href="../detail_riwayat_transaksi/1/" type="button" class="btn btn-primary">Detail</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-2 border-dark d-flex flex-row justify-content-start" style="width: 900px;">
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 180px;">
+                    <h3 class="fs-6 text-wrap fw-bold">Shabin Sabana</h3>
+                </div>
+
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 160px;">
+                    <h3 class="fs-6 text-wrap fw-semibold">Joni Aldo</h3>
+                </div>
+
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 200px;">
+                    <h3 class="fs-6 text-wrap fw-semibold">20:04:29</h3>
+                </div>
+
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 180px;">
+                    <div class="d-flex border border-success rounded-4 bg-success py-1 px-1 gap-2ss align-items-center text-success" style="--bs-bg-opacity: .2;"> 
+                        <div class="px-2">
+                            <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="4.67761" cy="4.39967" r="4" fill="#198754"/>
+                            </svg>        
+                        </div>
+                        Pesanan Selesai
+                    </div>
+                </div>
+  
+                <div class="d-flex flex-row justify-content-start p-2">
+                    <div style="width: 60%;">
+                        <a href="../detail_riwayat_transaksi/1/" type="button" class="btn btn-primary">Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}

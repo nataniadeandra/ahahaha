@@ -10,9 +10,9 @@
 {% endblock meta %}
 {% block content %}
 
-
-<h style="text-align:center">FORM BUAT KATEGORI RESTORAN</h>
 {% include 'navbar_admin.html' %}
+<h style="text-align:center">FORM BUAT KATEGORI RESTORAN</h>
+
 <form method="POST" id = "form">
     {% csrf_token %}
     {{form.as_p}}

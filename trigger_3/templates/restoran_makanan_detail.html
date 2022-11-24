@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Progress bar loading -->
+  <script src="../assets/frontend/vendor/pace/pace.min.js"></script>
+  <link rel="stylesheet" href="../assets/frontend/vendor/pace/pace.css">
+  <link rel="stylesheet" href="https://unpkg.com/placeholder-loading/dist/css/placeholder-loading.min.css">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Nyat Server Control">
+  <meta name="author" content="">
+
+  <title>
+    SIREST
+  </title>
+
+  <link rel="icon" href="../assets/frontend/img/favicon/favicon.png">
+
+  <!-- Custom fonts -->
+  <link href="../assets/frontend/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Bootstrap styles -->
+  <link href="../assets/frontend/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- NOTE: ALL SCRIPT MOVE HERE FROM BOTTOM -->
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="../assets/frontend/vendor/jquery/jquery.min.js"></script>
+  <script src="../assets/frontend/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="../assets/frontend/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom styles for ALL page-->
+  <link href="../assets/frontend/css/index.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <div style="min-height: 92vh;"></div>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column bg-white overflow-hidden">
+
+      <!-- Main Content -->
+      <div id="content">
+
+    <!-- Topbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white topbar h-auto container shadow-sm fixed-top">
+		  <div class="">
+		    <a class="navbar-brand d-flex mr-auto text-primary" href="../index.html">
+		      <span class="font-weight-bold mx-1">
+		        <i class="fas fa-utensils"></i> SIREST
+		      </span>
+		    </a>
+		  </div>
+
+		  <div class="topbar-divider d-none d-lg-block"></div>
+
+		  <div class="navbar-text">
+		    <button class="btn btn-link btn-sm d-lg-none rounded-circle" type="button" data-toggle="collapse" data-target="#navToggler1" aria-controls="navToggler1" aria-expanded="false" aria-label="Toggle navigation">
+		      <i class="fa fa-bars"></i>
+		    </button>
+      </div>
+
+		  <div class="collapse navbar-collapse" id="navToggler1">
+		    <hr class="d-lg-none m-0">
+		    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          <li class="nav-item p-1 p-lg-0 dropdown">
+		        <a class="btn btn-link text-decoration-none mr-1 btn-sm dropdown-toggle" href="#" id="menu_about" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          <i class="fas fa-sliders-h"></i> Manajemen Data
+		        </a>
+		        <div class="dropdown-menu keep-open dropdown-menu-right animated--grow-in shadow-sm ml-2 ml-lg-0" aria-labelledby="menu_about">
+              <h6 class="dropdown-header">Manajemen Data</h6>
+		          <a class="dropdown-item" href="tarif_pengiriman.html"><i class="fas fa-users"></i> Tarif Pengiriman</a>
+		          <a class="dropdown-item" href="makanan.html"><i class="fas fa-users"></i> Makanan</a>
+		          <a class="dropdown-item" href="kategori_makanan.html"><i class="fas fa-users"></i> Kategori Makanan</a>
+		          <a class="dropdown-item" href="transaksi_pesanan.html"><i class="fas fa-users"></i> Transaksi Pesanan</a>
+
+              <div class="dropdown-divider"></div>
+              
+              <h6 class="dropdown-header">Manajemen Contoh</h6>
+              <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Lorem Ipsum</a>
+		        </div>
+		      </li>
+		      <li class="nav-item p-1 p-lg-0">
+		        <a href="../index.html" class="">
+		          <button class="btn btn-link text-decoration-none mr-1 btn-sm" type="button">
+		            <i class="fas fa-sign-out-alt"></i> Logout
+		          </button>
+		        </a>
+		      </li>
+		    </ul>
+		  </div>
+
+		</nav>
+
+    <!-- End of Topbar -->
+
+    <div id="main_content" class="h-100">
+      <section id="secHeader" class="row h-100 my-4 my-md-0">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-12 my-md-1 text-center">
+              <h1 class="h3 text-gray-800 font-weight-bold">Detail Restoran</h1>
+              <hr>
+            </div>
+            <div class="col-12">
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <div class="row align-items-center px-2">
+                    <div class="flex-grow-1">
+                      <span class="m-0 font-weight-bold text-primary">Detail Restoran: [KFC - Depok]</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-3 col-xl-2 font-weight-bold">Nama restoran :</div>
+                    <div class="mb-2 col-md-9 col-xl-10">KFC</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3 col-xl-2 font-weight-bold">Cabang :</div>
+                    <div class="mb-2 col-md-9 col-xl-10">Depok</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3 col-xl-2 font-weight-bold">Nomor telepon :</div>
+                    <div class="mb-2 col-md-9 col-xl-10">0812345789</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3 col-xl-2 font-weight-bold">Jalan :</div>
+                    <div class="mb-2 col-md-9 col-xl-10">Jl. Margonda</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3 col-xl-2 font-weight-bold">Kecamatan :</div>
+                    <div class="mb-2 col-md-9 col-xl-10">Kec. Depok Lama</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3 col-xl-2 font-weight-bold">Kota :</div>
+                    <div class="mb-2 col-md-9 col-xl-10">Depok</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3 col-xl-2 font-weight-bold">Provinsi :</div>
+                    <div class="mb-2 col-md-9 col-xl-10">Jawa Barat</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3 col-xl-2 font-weight-bold">Rating :</div>
+                    <div class="mb-2 col-md-9 col-xl-10">4.5</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3 col-xl-2 font-weight-bold">Kategori restoran :</div>
+                    <div class="mb-2 col-md-9 col-xl-10">Siap Saji</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3 col-xl-2 font-weight-bold">Jam operasional :</div>
+                    <ul>
+                      <li>Senin, 08.00 - 20.00</li>
+                      <li>Selasa, 08.00 - 20.00</li>
+                      <li>Rabu, 08.00 - 20.00</li>
+                    </ul>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3 col-xl-2 font-weight-bold">Promo berlangsung:</div>
+                    <ul>
+                      <li>Promo 11.11</li>
+                      <li>Promo 12.12</li>
+                      <li>Promo 13.13</li>
+                    </ul>
+                  </div>
+                  <a href="makanan.html" class="mb-2 btn btn-primary btn-sm">Kembali</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white shadow-lg py-3">
+        <div class="container my-auto">
+          <div class="text-center my-auto">
+            <small>&copy; SIREST 2022
+            </small>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- NOTE: ALL SCRIPT FOR THIS PAGE -->
+  <script src="../assets/frontend/js/index.js"></script>
+
+</body>
+
+</html>
