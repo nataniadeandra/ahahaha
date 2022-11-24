@@ -1,0 +1,394 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+
+{% endblock meta %}
+
+{% block content %}
+
+{% include 'navbar_pelanggan.html' %}
+<div class="d-flex flex-row justify-content-center">
+    <div class="d-flex flex-column justify-content-center">
+        
+        <h2 class="lead text-bold pt-4 pb-3">RIWAYAT TRANSAKSI</h2>
+            
+        <h2 class="fs-4 fw-semibold pt-4 pb-3">Detail Pemesanan</h2>
+        <div class="d-flex flex-row justify-content-start">
+            <h3 class="fs-6 text-wrap fw-normal pe-4">Waktu Pemesanan</h3>
+            <h3 class="fs-6 text-wrap fw-normal">2022-11-04 11:30:05</h3>
+        </div>
+
+        <div class="d-flex flex-row justify-content-between" style="width: 880px;">
+            <!-- cards dikirim ke -->
+            <div class="card d-flex flex-column">
+                <div class="d-flex flex-row justify-content-start align-items-start p-2">
+                    <div class="px-2 py-3 align-items-center">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_214_5428)">
+                                <path d="M19 9.29997V4.99997C19 4.44997 18.55 3.99997 18 3.99997H17C16.45 3.99997 16 4.44997 16 4.99997V6.59997L12.67 3.59997C12.29 3.25997 11.71 3.25997 11.33 3.59997L2.96998 11.13C2.62998 11.43 2.83998 12 3.29998 12H4.99998V19C4.99998 19.55 5.44998 20 5.99998 20H8.99998C9.54998 20 9.99998 19.55 9.99998 19V14H14V19C14 19.55 14.45 20 15 20H18C18.55 20 19 19.55 19 19V12H20.7C21.16 12 21.38 11.43 21.03 11.13L19 9.29997ZM9.99998 9.99997C9.99998 8.89997 10.9 7.99997 12 7.99997C13.1 7.99997 14 8.89997 14 9.99997H9.99998Z" fill="#DC3545"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_214_5428">
+                                    <rect width="24" height="24" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>       
+                    </div>
+                    <h3 class="py-3 align-items-center fs-5 text-wrap fw-bold">Pesanan Dikirim ke</h3>
+                </div>
+                
+                <div class="d-flex flex-row">
+                
+                    <div class="p-2 border-dark d-flex flex-column justify-content-start">
+                        <div class="d-flex flex-column justify-content-start px-2" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-normal">Nama Pelanggan</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-start px-2" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-normal">Jalan</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-start px-2" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-normal">Kecamatan</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-start px-2" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-normal">Kota</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-start px-2" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-normal">Provinsi</h3>
+                        </div>
+                    </div>
+
+                    
+                    <div class="p-2 border-dark d-flex flex-column justify-content-center align-items-end">
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-end" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-bold">Mikayla Putri</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-end" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-semibold">Jalan Bahagia nomor 72</h3>
+                        </div>
+                        
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-end" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-semibold">Cinere</h3>
+                        </div>
+                        
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-end" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-semibold">Depok</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-end" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-semibold">Jawa Barat</h3>
+                        </div>
+                    </div>          
+                </div>
+            </div>
+            <!-- cards dikirim dari -->
+            <div class="card d-flex flex-column">
+                <div class="d-flex flex-row justify-content-start align-items-start p-2">
+                    <div class="px-2 py-3 align-items-center">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_214_5419)">
+                            <path d="M16 6V12C16 13.1 16.9 14 18 14H19V21C19 21.55 19.45 22 20 22C20.55 22 21 21.55 21 21V3.13C21 2.48 20.39 2 19.76 2.15C17.6 2.68 16 4.51 16 6ZM11 9H9V3C9 2.45 8.55 2 8 2C7.45 2 7 2.45 7 3V9H5V3C5 2.45 4.55 2 4 2C3.45 2 3 2.45 3 3V9C3 11.21 4.79 13 7 13V21C7 21.55 7.45 22 8 22C8.55 22 9 21.55 9 21V13C11.21 13 13 11.21 13 9V3C13 2.45 12.55 2 12 2C11.45 2 11 2.45 11 3V9Z" fill="#198754"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_214_5419">
+                            <rect width="24" height="24" fill="white"/>
+                            </clipPath>
+                            </defs>
+                        </svg>           
+                    </div>
+                    <h3 class="py-3 align-items-center fs-5 text-wrap fw-bold">Pesanan Dikirim dari</h3>
+                </div>
+                
+                <div class="d-flex flex-row">
+                
+                    <div class="p-2 border-dark d-flex flex-column justify-content-start">
+                        <div class="d-flex flex-column justify-content-start px-2" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-normal">Nama Pelanggan</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-start px-2" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-normal">Jalan</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-start px-2" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-normal">Kecamatan</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-start px-2" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-normal">Kota</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-start px-2" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-normal">Provinsi</h3>
+                        </div>
+                    </div>
+
+                    
+                    <div class="p-2 border-dark d-flex flex-column justify-content-center align-items-end">
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-end" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-bold">Warung Mantap Depok</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-end" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-semibold">Jalan Sejahtera nomor 5</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-end" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-semibold">Bojongsari</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-end" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-semibold">Depok</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-end" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-semibold">Jawa Barat</h3>
+                        </div>
+                    </div>          
+                </div>
+            </div>
+        </div>
+
+
+        <h2 class="fs-4 fw-semibold pt-4 pb-3">Detail Pembayaran</h2>
+        <div class="d-flex flex-row justify-content-between" style="width: 880px;">    
+                    
+            <div class="card d-flex flex-column" style="width: 100%;">  
+                
+                <div class="d-flex flex-row pt-3 px-3 align-items-center justify-content-end" style="width: 100%;">
+                    <!-- <h3 class="pe-2 fs-6 text-wrap fw-normal">Status Pembayaran</h3> -->
+                    <div class="d-flex border border-success rounded-5 bg-success py-1 px-3 gap-2 align-items-center text-success" style="--bs-bg-opacity: .2;"> 
+                        <div class="pe-1 pb-1">
+                            <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="4.67761" cy="4.39967" r="4" fill="#198754"/>
+                            </svg>        
+                        </div>
+                        Pembayaran Berhasil
+                    </div>
+                </div>
+
+                <div class="px-2 d-flex flex-column justify-content-start">
+                    <!-- Makanan Dipesan -->
+                    <div class="d-flex pt-2 flex-row justify-content-start px-2" style="width: 200px;">
+                        <h3 class="fs-6 text-wrap fw-semibold">1</h3>
+                        <div class="d-flex flex-column justify-content-start px-2">
+                            <h3 class="fs-6 text-wrap fw-normal">Ayam Goreng</h3>
+                            <h3 class="fs-6 text-wrap fw-normal text-secondary">Tidak Pakai Sambal</h3>
+                        </div>
+                    </div>
+
+                    <div class="d-flex pt-2 flex-row justify-content-start px-2" style="width: 200px;">
+                        <h3 class="fs-6 text-wrap fw-semibold">2</h3>
+                        <div class="d-flex flex-column justify-content-start px-2">
+                            <h3 class="fs-6 text-wrap fw-normal">Ice Cream</h3>
+                            <h3 class="fs-6 text-wrap fw-normal text-secondary">Rasa Coklat</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pricing -->
+                <div class="d-flex flex-row justify-content-between">
+                    <div class="p-2 border-dark d-flex flex-column justify-content-start">
+                        <div class="d-flex flex-column justify-content-center px-2" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-semibold">Total Harga Makanan</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-center px-2" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-normal">Total Diskon</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-center px-2" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-normal">Biaya Pengantaran</h3>
+                        </div>
+                    </div>
+
+                    
+                    <div class="p-2 border-dark d-flex flex-column justify-content-center align-items-end">
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-end" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-semibold">11000</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-end" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-normal">-0</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-end" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-normal">4000</h3>
+                        </div>
+                    </div>                           
+                </div>
+
+                
+                    <div class="d-flex flex-row border border-top-2 mx-3">
+                    </div>
+                
+
+                <div class="d-flex flex-row justify-content-between">
+                    <div class="p-2 border-dark d-flex flex-column justify-content-start">
+                        <div class="d-flex flex-column justify-content-center px-2" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-bold">Total Biaya</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-center px-2" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-normal">Jenis Pembayaran</h3>
+                        </div>
+                    </div>
+
+                    
+                    <div class="p-2 border-dark d-flex flex-column justify-content-center align-items-end">
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-end" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-bold">15000</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-end" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-normal">RestoPay</h3>
+                        </div>
+
+                        
+                    </div>                           
+                </div>
+            </div>
+        </div>
+
+        <h2 class="fs-4 fw-semibold pt-4 pb-3">Detail Pengantaran</h2>
+        <div class="d-flex flex-row justify-content-between" style="width: 880px;">
+
+            <!-- cards dikirim dari -->
+            <div class="card d-flex flex-column">
+                <div class="d-flex flex-row justify-content-start align-items-start p-2">
+                    <div class="px-2 py-3 align-items-center">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.63604 18.3639C2.12132 14.8492 2.12132 9.15071 5.63604 5.63599M18.364 5.63599C21.8787 9.15071 21.8787 14.8492 18.364 18.3639M8.46447 15.5355C6.51184 13.5829 6.51184 10.417 8.46447 8.46441M15.5355 8.46441C17.4882 10.417 17.4882 13.5829 15.5355 15.5355M13 11.9999C13 12.5522 12.5523 12.9999 12 12.9999C11.4477 12.9999 11 12.5522 11 11.9999C11 11.4477 11.4477 10.9999 12 10.9999C12.5523 10.9999 13 11.4477 13 11.9999Z" stroke="#6610f2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>               
+                    </div>
+                    <h3 class="py-3 align-items-center fs-5 text-wrap fw-bold">Status Pengantaran</h3>
+                </div>
+                
+                <div class="d-flex flex-row px-3 align-items-center justify-content-start" style="width: 100%;">
+                    <!-- <h3 class="pe-2 fs-6 text-wrap fw-normal">Status Pembayaran</h3> -->
+                    <div class="d-flex border border-success rounded-5 bg-success py-1 px-3 gap-2 align-items-center text-success" style="--bs-bg-opacity: .2;"> 
+                        <div class="pe-1 pb-1">
+                            <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="4.67761" cy="4.39967" r="4" fill="#198754"/>
+                            </svg>        
+                        </div>
+                        Pesanan Diantar
+                    </div>
+                </div>
+
+                <div class="d-flex flex-row">
+                    <div class="p-2 border-dark d-flex flex-column justify-content-start">
+                        <div class="d-flex flex-column justify-content-start px-2" style="width: 280px;">
+                            <h3 class="fs-6 text-wrap fw-normal">Status</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-start px-2" style="width: 280px;">
+                            <h3 class="fs-6 text-wrap fw-semibold">Menunggu Konfirmasi Restoran</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-start px-2" style="width: 280px;">
+                            <h3 class="fs-6 text-wrap fw-semibold">Pesanan Dibuat</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-start px-2" style="width: 280px;">
+                            <h3 class="fs-6 text-wrap fw-semibold">Pesanan Diantar</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-start px-2" style="width: 280px;">
+                            <h3 class="fs-6 text-wrap fw-semibold">Pesanan Selesai</h3>
+                        </div>
+                    </div>
+
+                    
+                    <div class="p-2 border-dark d-flex flex-column justify-content-center align-items-start">
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-start" style="width: 120px;">
+                            <h3 class="fs-6 text-wrap fw-normal">Timestamp</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-start" style="width: 120px;">
+                            <h3 class="fs-6 text-wrap fw-semibold">11:30:05</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-start" style="width: 120px;">
+                            <h3 class="fs-6 text-wrap fw-semibold">11:31:03</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-start" style="width: 120px;">
+                            <h3 class="fs-6 text-wrap fw-semibold">11:40:01</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-start" style="width: 120px;">
+                            <h3 class="fs-6 text-wrap fw-semibold">11:50:07</h3>
+                        </div>
+                    </div>          
+                </div>
+            </div>
+
+            <!-- cards dikirim ke -->
+            <div class="card d-flex flex-column">
+                <div class="d-flex flex-row justify-content-start align-items-start p-2">
+                    <div class="px-2 py-3 align-items-center">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.17 11C4.12 11 4.06 11 4 11H4.17ZM13.41 5H9V7H12.59L14.59 9H11L7 11L5 9H0V11H4C1.79 11 0 12.79 0 15C0 17.21 1.79 19 4 19C6.21 19 8 17.21 8 15L10 17H13L16.49 10.9L17.5 11.91C16.59 12.64 16 13.75 16 15C16 17.21 17.79 19 20 19C22.21 19 24 17.21 24 15C24 12.79 22.21 11 20 11C19.82 11 19.64 11.03 19.47 11.05L17.41 9H20V6L16.28 7.86L13.41 5ZM20 17C18.9 17 18 16.1 18 15C18 13.9 18.9 13 20 13C21.1 13 22 13.9 22 15C22 16.1 21.1 17 20 17ZM4 17C2.9 17 2 16.1 2 15C2 13.9 2.9 13 4 13C5.1 13 6 13.9 6 15C6 16.1 5.1 17 4 17Z" fill="#ffc107"/>
+                        </svg>
+                    </div>
+                    <h3 class="py-3 align-items-center fs-5 text-wrap fw-bold">Detail Kurir</h3>
+                </div>
+                
+                <div class="d-flex flex-row">
+                
+                    <div class="p-2 border-dark d-flex flex-column justify-content-start">
+                        <div class="d-flex flex-column justify-content-start px-2" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-normal">Nama Kurir</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-start px-2" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-normal">Plat Kendaraan</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-start px-2" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-normal">Jenis Kendaraan</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-start px-2" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-normal">Merk Kendaraan</h3>
+                        </div>
+                    </div>
+
+                    
+                    <div class="p-2 border-dark d-flex flex-column justify-content-center align-items-end">
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-end" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-bold">Doni Suryana</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-end" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-semibold">B 0001 KKN</h3>
+                        </div>
+                        
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-end" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-semibold">Motor</h3>
+                        </div>
+                        
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-end" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-semibold">Honda Vario</h3>
+                        </div>
+                    </div>          
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-3"></div>
+        <a onClick="javascript:history.go(-1);" type="button" class="btn btn-dark">Close</a>
+    </div>    
+</div>
+
+<div class="d-flex flex-row justify-content-between p-4">
+
+</div>
+
+
+{% endblock content %}
