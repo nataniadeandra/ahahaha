@@ -9,3 +9,12 @@ def dashboard_restoran(request, pk):
 
 def dashboard_kurir(request, pk):
     return render(request, 'dashboard_kurir.html')
+
+def detail_pelanggan(request, pk):
+    return render(request, 'detail_pelanggan.html')
+
+def detail_restoran(request, pk):
+    return render(request, 'detail_restoran.html')
+
+def detail_kurir(request, pk):
+    return render(request, 'detail_kurir.html')
