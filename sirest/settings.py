@@ -37,8 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'login_page',
     'trigger_5',
     'trigger_2',
+    'trigger_6',
     'dashboard',
 ]
 
