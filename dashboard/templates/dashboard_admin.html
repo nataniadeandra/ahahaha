@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+
+<style>
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+</style>
+
+{% endblock meta %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col">
+        <h2 class=" pt-4 pb-3"><strong>Dashboard Pengguna: Lind Fenlon</strong></h2>
+    </div>
+</div>
+
+{% include 'navbar_pelanggan.html' %}
+
+<div class="row">
+    <div class="col">
+        <div class="card my-4 shadow">
+        <div class="card-body border-dark" style="width: 500px;">
+
+        <div class="pb-3 pt-2 d-flex justify-content-center">
+            <p class=" pt-2">Email: lfenlonf@google.ca</p>
+            <p class=" pt-2">Password: Password1234</p>
+            <p class=" pt-2">Nama: Lind Fenlon</p>
+            <p class=" pt-2">Nomor HP: 4482073878</p>
+        </div>
+
+        <div class="card" style="width: 900px;">
+
+            <div class="p-2 border-dark d-flex flex-row justify-content-start" style="width: 900px;">
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 180px;">
+                    <h3 class="fs-6 text-wrap fw-normal">Email</h3>
+                </div>
+
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 160px;">
+                    <h3 class="fs-6 text-wrap fw-normal">Nama</h3>
+                </div>
+
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 200px;">
+                    <h3 class="fs-6 text-wrap fw-normal">Role</h3>
+                </div>
+
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 180px;">
+                    <h3 class="fs-6 text-wrap fw-normal">Status</h3>
+                </div>
+                
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 200px;">
+                    <h3 class="fs-6 text-wrap fw-normal">Aksi</h3>
+                </div>
+            </div>
+
+            
+            <div class="p-2 border-dark d-flex flex-row justify-content-start" style="width: 900px;">
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 180px;">
+                    <h3 class="fs-6 text-wrap fw-bold">mutia@gmail.com</h3>
+                </div>
+
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 160px;">
+                    <h3 class="fs-6 text-wrap fw-semibold">Mutia Anisa</h3>
+                </div>
+
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 200px;">
+                    <h3 class="fs-6 text-wrap fw-semibold">Pelanggan</h3>
+                </div>
+
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 180px;">
+                    <div class="d-flex border border-success rounded-4 bg-success py-1 px-1 gap-2ss align-items-center text-success" style="--bs-bg-opacity: .2;"> 
+                        <div class="px-2">
+                            <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="4.67761" cy="4.39967" r="4" fill="#198754"/>
+                            </svg>        
+                        </div>
+                        Terverifikasi
+                    </div>
+                </div>
+                
+                <div class="d-flex flex-row justify-content-start p-2" style="width: 200px;">
+                    <div style="width: 60%;">
+                        <a href="../detail_riwayat_transaksi/1/" type="button" class="btn btn-primary">Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}
