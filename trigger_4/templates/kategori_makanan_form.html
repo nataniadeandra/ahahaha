@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<title>Form Kategori Makanan</title>
+{% endblock meta %}
+
+{% block content %}  
+
+<div class = "form_alamat">
+    
+    <h1>FORM BUAT KATEGORI MAKANAN</h1>  
+
+    <form method="POST" >  
+    {% csrf_token %}  
+        <table>  
+        {{ form.as_table }}  
+            <tr>  
+                <td></td>
+                <td><input type="submit" name="submit" value="SIMPAN"/></td>  
+            </tr>  
+        </table>  
+    </form>
+</div>  
+
+{% endblock content %}

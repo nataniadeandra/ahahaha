@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+
+<style>
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+</style>
+
+{% endblock meta %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col">
+        <h2 class=" pt-4 pb-3"><strong>Pemilihan Restoran</strong></h2>
+    </div>
+</div>
+
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Nama - Cabang Restoran</th>
+        <th scope="col">Promo Berlangsung</th>
+        <th scope="col">Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Atlas Jakarta</td>
+        <td>Promo Independence</td>
+        <td><button type="button" class="btn btn-primary">Pilih</button></td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Atlas Bandung</td>
+        <td>Promo HappyHoliday</td>
+        <td><button type="button" class="btn btn-primary">Pilih</button></td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Shambles Jakarta</td>
+        <td>Promo Half</td>
+        <td><button type="button" class="btn btn-primary">Pilih</button></td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>Shambles Bandung</td>
+        <td>Promo Ramadhan</td>
+        <td><button type="button" class="btn btn-primary">Pilih</button></td>
+      </tr>
+      <tr>
+        <th scope="row">5</th>
+        <td>Trilogy Jakarta</td>
+        <td>Promo 11-11</td>
+        <td><button type="button" class="btn btn-primary">Pilih</button></td>
+      </tr>
+      <tr>
+        <th scope="row">6</th>
+        <td>Trilogy Bandung</td>
+        <td>Promo Christmas</td>
+        <td><button type="button" class="btn btn-primary">Pilih</button></td>
+      </tr>
+      <tr>
+        <th scope="row">7</th>
+        <td>Brimstone Jakarta</td>
+        <td>Promo 12-12</td>
+        <td><button type="button" class="btn btn-primary">Pilih</button></td>
+      </tr>
+      <tr>
+        <th scope="row">8</th>
+        <td>Brimstone Bandung</td>
+        <td>Promo NewYear</td>
+        <td><button type="button" class="btn btn-primary">Pilih</button></td>
+      </tr>
+      <tr>
+        <th scope="row">9</th>
+        <td>Bones Jakarta</td>
+        <td>Promo BestDeal</td>
+        <td><button type="button" class="btn btn-primary">Pilih</button></td>
+      </tr>
+      <tr>
+        <th scope="row">10</th>
+        <td>Bones Bandung</td>
+        <td>Promo Halloween</td>
+        <td><button type="button" class="btn btn-primary">Pilih</button></td>
+      </tr>
+    </tbody>
+  </table>

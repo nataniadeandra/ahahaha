@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+<html>
+{% block meta %}
+
+<style>
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+</style>
+
+{% endblock meta %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col">
+        <h2 class=" pt-4 pb-3"><strong>Daftar Pesanan</strong></h2>
+    </div>
+</div>
+
+
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Nama Makanan</th>
+        <th scope="col">Harga</th>
+        <th scope="col">Jumlah</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Ayam Goreng</td>
+        <td>5000</td>
+        <td>1</td>
+        <td>5000</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Ice Cream</td>
+        <td>3000</td>
+        <td>2</td>
+        <td>6000</td>
+        </tr>
+      <tr>
+        <th scope="row" colspan="4">Total Harga</th>
+        <td>11000</td>
+      </tr>
+    </tbody>
+</table>
+
+<ul class="list-group list-group-flush">
+    <li class="list-group-item">Metode Pengantaran: Motor</li>
+    <li class="list-group-item">Metode Pembayaran: RestoPay</li>
+</ul>
+
+<ul class="list-group list-group-flush">
+    <li class="list-group-item">Total Diskon: 0</li>
+    <li class="list-group-item">Biaya Pengantaran: 4000</li>
+    <li class="list-group-item">Total Biaya: 15000</li>
+</ul>
+
+<div><button type="button" class="btn btn-primary">LANJUT KE PEMBAYARAN</button></div>
+</html>
+{% endblock content %}

@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+
+<style>
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+</style>
+
+{% endblock meta %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col">
+        <h2 class=" pt-4 pb-3"><strong>Dashboard Admin: Matt Farndale</strong></h2>
+    </div>
+</div>
+
+{% include 'navbar_admin.html' %}
+
+<ul class="list-group list-group-flush">
+    <li class="list-group-item">Email: mfarndale2@last.fm</li>
+    <li class="list-group-item">Password: Cali4Nia</li>
+    <li class="list-group-item">Nama: Matt Farndale</li>
+    <li class="list-group-item">Nomor HP: 081208230834</li>
+  </ul>
+
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Email</th>
+        <th scope="col">Nama</th>
+        <th scope="col">Role</th>
+        <th scope="col">Status</th>
+        <th scope="col">Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>gcarnegie5@yelp.com</td>
+        <td>Gage Carnegie</td>
+        <td>Kurir</td>
+        <td>Terverifikasi</td>
+        <td><button type="button" class="btn btn-primary">Detail</button>
+        </td>
+      </tr>
+      <tr>
+        <td>lfenlonf@google.ca</td>
+        <td>Lind Fenlon</td>
+        <td>Pelanggan</td>
+        <td>Terverifikasi</td>
+        <td><button type="button" class="btn btn-primary">Detail</button>
+        </td>
+      </tr>
+      <tr>
+        <td>lgrollz@salon.com</td>
+        <td>Lynnea Groll</td>
+        <td>Restoran</td>
+        <td>Terverifikasi</td>
+        <td><button type="button" class="btn btn-primary">Detail</button>
+        </td>
+      </tr>
+      <tr>
+        <td>blothean7@tripod.com</td>
+        <td>Byron Lothean</td>
+        <td>Pelanggan</td>
+        <td>Belum Terverifikasi</td>
+        <td><button type="button" class="btn btn-primary">Detail</button>
+            <button type="button" class="btn btn-primary">Verifikasi</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

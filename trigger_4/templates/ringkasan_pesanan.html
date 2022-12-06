@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+<html>
+{% block meta %}
+
+<style>
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+</style>
+
+{% endblock meta %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col">
+        <h2 class=" pt-4 pb-3"><strong>Ringkasan Pesanan</strong></h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        
+        <div class="card my-4 shadow">
+        <div class="card-body border-dark" style="width: 500px;">
+
+        <div class="pb-3 pt-2 d-flex justify-content-center">
+            <p class=" pt-2">Waktu Pemesanan: 2022-11-04 11:30:05</p>
+        </div>
+
+        <div class="pb-3 pt-2 d-flex justify-content-center">
+            <p class=" pt-2">Nama Pelanggan: Mikayla Putri</p>
+            <p class=" pt-2">Jalan: Jalan Bahagia nomor 72</p>
+            <p class=" pt-2">Kecamatan: Cinere</p>
+            <p class=" pt-2">Kota: Depok</p>
+            <p class=" pt-2">Provinsi: Jawa Barat</p>
+        </div>
+
+        <div class="pb-3 pt-2 d-flex justify-content-center">
+            <p class=" pt-2">Restoran: Warung Mantap Depok</p>
+            <p class=" pt-2">Jalan: Jalan Sejahtera nomor 5</p>
+            <p class=" pt-2">Kecamatan: Bojongsari</p>
+            <p class=" pt-2">Kota: Depok</p>
+            <p class=" pt-2">Provinsi: Jawa Barat</p>
+        </div>
+
+        <div class="pb-3 pt-2 d-flex justify-content-center">
+            <p class=" pt-2">Makanan yang dipesan:</p>
+            <p class=" pt-2">- Ayam Goreng (1)</p>
+            <p class=" pt-2">- Ice Cream (2)</p>
+            <p class=" pt-2">Total Harga Makanan: 11000</p>
+            <p class=" pt-2">Total Diskon: 0</p>
+            <p class=" pt-2">Biaya Pengantaran: 4000</p>
+            <p class=" pt-2">Total Biaya: 15000</p>
+            <p class=" pt-2">Jenis Pembayaran: Restopay</p>
+        </div>
+
+        <div class="pb-3 pt-2 d-flex justify-content-center">
+            <p class=" pt-2">Status Pembayaran: Berhasil</p>
+            <p class=" pt-2">Status Pesanan: Menunggu Konfirmasi Restoran</p>
+        </div>
+
+        <div class="pb-3 pt-2 d-flex justify-content-center">
+            <p class=" pt-2">Kurir: -</p>
+            <p class=" pt-2">Plat Kendaraan: -</p>
+            <p class=" pt-2">Jenis Kendaraan: -</p>
+            <p class=" pt-2">Merk Kendaraan: -</p>
+        </div>
+
+        <div><button type="button" class="btn btn-primary">Kembali</button></div>
+    </div>
+</div>
+</html>
+{% endblock content %}

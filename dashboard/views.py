@@ -9,3 +9,6 @@ def dashboard_restoran(request, pk):
 
 def dashboard_kurir(request, pk):
     return render(request, 'dashboard_kurir.html')
+
+def dashboard_admin(request, pk):
+    return render(request, 'dashboard_admin.html')
