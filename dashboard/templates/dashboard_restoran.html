@@ -18,7 +18,7 @@
 
 <div class="row">
     <div class="col">
-        <h2 class=" pt-4 pb-3"><strong>Dashboard Pengguna: Lynnea Groll</strong></h2>
+        <h2 class=" pt-4 pb-3"><strong>Dashboard Pengguna: {{nama}}</strong></h2>
     </div>
 </div>
 
@@ -30,29 +30,29 @@
         <div class="card-body border-dark" style="width: 500px;">
 
         <div class="pb-3 pt-2 d-flex justify-content-center">
-            <p class=" pt-2">Email: lgrollz@salon.com</p>
-            <p class=" pt-2">Password: Password1234</p>
-            <p class=" pt-2">Nama: Lynnea Groll</p>
-            <p class=" pt-2">Nomor HP: 7423578255</p>
-            <p class=" pt-2">NIK: 3326161106490001</p>
-            <p class=" pt-2">Nama bank: BCA</p>
-            <p class=" pt-2">Nomor rekening: 5392067183692346</p>
+            <p class=" pt-2">Email: {{email}}</p>
+            <p class=" pt-2">Password: {{password}}</p>
+            <p class=" pt-2">Nama: {{nama}}</p>
+            <p class=" pt-2">Nomor HP: {{nomor_hp}}</p>
+            <p class=" pt-2">NIK: {{nik}}</p>
+            <p class=" pt-2">Nama bank: {{nama_bank}}</p>
+            <p class=" pt-2">Nomor rekening: {{nomor_rekening}}</p>
         </div>
 
         <div class="pb-3 pt-2 d-flex justify-content-center">
-            <p class=" pt-2">Nama restoran: Atlas</p>
-            <p class=" pt-2">Cabang: Jakarta</p>
-            <p class=" pt-2">Nomor telepon: 021-232-333</p>
-            <p class=" pt-2">Jalan: Bulungan</p>
-            <p class=" pt-2">Kecamatan: Blok M</p>
-            <p class=" pt-2">Kota: Jakarta</p>
-            <p class=" pt-2">Provinsi: DKI Jakarta</p>
-            <p class=" pt-2">Rating: 5</p>
-            <p class=" pt-2">Kategori restoran: Spanish</p>
+            <p class=" pt-2">Nama restoran: {{nama_restoran}}</p>
+            <p class=" pt-2">Cabang: {{cabang}}</p>
+            <p class=" pt-2">Nomor telepon: {{nomor_telepon}}</p>
+            <p class=" pt-2">Jalan: {{jalan}}</p>
+            <p class=" pt-2">Kecamatan: {{kecamatan}}</p>
+            <p class=" pt-2">Kota: {{kota}}</p>
+            <p class=" pt-2">Provinsi: {{provinsi}}</p>
+            <p class=" pt-2">Rating: {{rating}}</p>
+            <p class=" pt-2">Kategori restoran: {{kategori_restoran}}</p>
             <p class=" pt-2">Jam operasional: </p>
-            <p class=" pt-2">• Friday 10:00:00 - 22:00:00</p>
-            <p class=" pt-2">• Saturday 08:00:00 - 22:00:00</p>
-            <p class=" pt-2">• Sunday 08:00:00 - 22:00:00</p>
+            {% for jo in jam_operasional %}
+                <p class=" pt-2">• {{jo.day}} {{jo.starthours}} - {{jo.endhours}}</p>
+            {% endfor %}
         </div>
 
         <div class="pb-3 pt-2 d-flex justify-content-center">

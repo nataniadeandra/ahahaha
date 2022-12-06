@@ -38,40 +38,23 @@
                     <th scope="col">Aksi</th>
                 </tr>
                 </thead>
+
                 <tbody>
+
+                {% for q in query%}
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Senin</td>
-                        <td>10:00:00</td>
-                        <td>22:00:00</td>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{q.day}}</td>
+                        <td>{{q.starthours}}</td>
+                        <td>{{q.endhours}}</td>
                         <td>
-                            <a href="../update/1/">Ubah</a>
+                            <a href="../update/{{q.day}}/">Ubah</a>
                             <br>
-                            <a href="../delete/1/">Hapus</a>
+                            <a href="../delete/{{q.day}}/">Hapus</a>
                         </td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Selasa</td>
-                        <td>10:00:00</td>
-                        <td>22:00:00</td>
-                        <td>
-                            <a href="../update/1/">Ubah</a>
-                            <br>
-                            <a href="../delete/1/">Hapus</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Rabu</td>
-                        <td>10:00:00</td>
-                        <td>22:00:00</td>
-                        <td>
-                            <a href="../update/1/">Ubah</a>
-                            <br>
-                            <a href="../delete/1/">Hapus</a>
-                        </td>
-                    </tr>
+                {% endfor %}
+
                 </tbody>
             </table>
         </div>

@@ -25,20 +25,28 @@
         <div class="card">
         <div class="card-body border-dark" style="width: 300px;">
         <div class="d-flex justify-content-center">
-            <h3 class="lead py-2">Hari: Senin</h3>
+            <h3 class="lead py-2">Hari: {{day}}</h3>
         </div>
 
-        <div class="pb-3 pt-2 d-flex justify-content-center">
-            <h3 class="lead py-2">Jam Buka</h3>
-            <input type="time" class="form-control">
-        </div>
+        <form method="post" class="login">
+            {% csrf_token %}
 
-        <div class="pb-4 pt-2 d-flex justify-content-center">
-            <h3 class="lead py-2">Jam Tutup</h3>
-            <input type="time" class="form-control">
-        </div>
+            <div class="pb-3 pt-2 d-flex justify-content-center">
+                <h3 class="lead py-2">Jam Buka</h3>
+                <input type="time" id="jam-buka" name="jam-buka" class="form-control" required>
+            </div>
 
-        <input type="submit" class="btn my-4 border-dark" value="Simpan">
+            <div class="pb-4 pt-2 d-flex justify-content-center">
+                <h3 class="lead py-2">Jam Tutup</h3>
+                <input type="time" id="jam-tutup" name="jam-tutup" class="form-control" required>
+            </div>
+
+            <div class="pb-3 pt-2 d-flex justify-content-center">
+                <button class="btn border-dark">Simpan</button>
+            </div>
+
+        </form>
+
         </div>
         </div>
 
