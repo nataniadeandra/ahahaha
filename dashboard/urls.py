@@ -1,9 +1,10 @@
 from django.urls import path
-from dashboard.views import dashboard_kurir, dashboard_pelanggan, dashboard_restoran, detail_kurir, detail_pelanggan, detail_restoran
+from dashboard.views import dashboard_kurir, dashboard_pelanggan, dashboard_restoran, dashboard_admin, detail_kurir, detail_pelanggan, detail_restoran
 
 app_name = "dashboard"
 
 urlpatterns = [
+    path("admin/<int:pk>/", dashboard_admin, name = "dashboard_admin"),
     path("pelanggan/", dashboard_pelanggan, name = "dashboard_pelanggan"),
     path("restoran/", dashboard_restoran, name = "dashboard_resto"),
     path("kurir/", dashboard_kurir, name = "dashboard_kurir"),

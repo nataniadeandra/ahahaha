@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+
+<style>
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+</style>
+
+{% endblock meta %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col">
+        <h2 class=" pt-4 pb-3"><strong>Pemilihan Detail Pesanan</strong></h2>
+    </div>
+</div>
+
+<table class="table table-hover">
+    <form>
+        <thead>
+        <tr>
+            <th scope="col">No</th>
+            <th scope="col">Nama Makanan</th>
+            <th scope="col">Harga</th>
+            <th scope="col">Jumlah</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Brined Watercress Roll</td>
+            <td>30000</td>
+            <td><input type="number" id="jumlah" name="jumlah"></td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Pecan and Honey Roll</td>
+            <td>35000</td>
+            <td><input type="number" id="jumlah" name="jumlah"></td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Pistachio and Pecan Waffles</td>
+            <td>40000</td>
+            <td><input type="number" id="jumlah" name="jumlah"></td>
+        </tr>
+        <tr>
+            <th scope="row">4</th>
+            <td>Passionfruit Cobbler</td>
+            <td>50000</td>
+            <td><input type="number" id="jumlah" name="jumlah"></td>
+        </tr>
+        <tr>
+            <th scope="row">5</th>
+            <td>Frapefruit Cheesecake</td>
+            <td>40000</td>
+            <td><input type="number" id="jumlah" name="jumlah"></td>
+        </tr>
+        <tr>
+            <th scope="row" colspan="4">Pilih Metode Pembayaran dan Pengantaran</th>
+            <td colspan="4"><label for="vehicle">Metode Pengantaran:</label>
+            <select name="vehicle" id="vehicle">
+                <option value="car">Mobil</option>
+                <option value="bike">Motor</option>
+            </select></td>
+            <td colspan="4"><label for="payment_method">Metode Pembayaran:</label>
+                <select name="payment_method" id="payment_method">
+                    <option value="restopay">Restopay</option>
+                    <option value="qris">QRIS</option>
+                </select></td>
+        </tr>
+        <tr>
+            <td colspan="4"><button type="button" class="btn btn-primary">PESAN</button></td>
+        </tr>
+        </tbody>
+    </form>
+  </table>

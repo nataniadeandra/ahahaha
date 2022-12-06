@@ -122,6 +122,9 @@ def dashboard_restoran(request):
 def dashboard_kurir(request):
     return render(request, 'dashboard_kurir.html')
 
+def dashboard_admin(request, pk):
+    return render(request, 'dashboard_admin.html')
+
 def detail_pelanggan(request):
     return render(request, 'detail_pelanggan.html')
 
