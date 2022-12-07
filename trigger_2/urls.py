@@ -9,7 +9,7 @@ urlpatterns = [
     path("restopay/tarik/", tarik_resto_pay, name = "tarik_resto_pay"),
     
     path("transaksipesanan/restoran/read/", read_transaksi_pesanan_restoran, name = "read_transaksi_pesanan_restoran"),
-    path("transaksipesanan/restoran/update/<str:email>/<str:datetime>/", update_transaksi_pesanan_restoran, name = "update_transaksi_pesanan_restoran"),
+    path("transaksipesanan/restoran/update/<str:email>/<str:datetime>/<str:status_id>/", update_transaksi_pesanan_restoran, name = "update_transaksi_pesanan_restoran"),
     path("transaksipesanan/restoran/detail/<str:email>/<str:datetime>/", detail_transaksi_pesanan_restoran, name = "detail_transaksi_pesanan_restoran"),
 
     path("jamoperasional/create/", create_jam_operasional, name = "create_jam_operasional"),

@@ -49,9 +49,9 @@
                             <a href="../detail/{{q.email}}/{{datetime}}/">Detail</a>
                             <br>
                             {% if q.status_id == 'TS01' %}
-                                <a href="../update/{{q.email}}/{{datetime}}/">Konfirmasi</a>
+                                <a href="../update/{{q.email}}/{{datetime}}/{{q.status_id}}/">Konfirmasi</a>
                             {% elif q.status_id == 'TS02' %}
-                                <a href="../update/{{q.email}}/{{datetime}}/">Kirim</a>
+                                <a href="../update/{{q.email}}/{{datetime}}/{{q.status_id}}/">Kirim</a>
                             {% endif %}
                         </td>
                     </tr>    
