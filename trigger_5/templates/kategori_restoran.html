@@ -53,7 +53,7 @@
                 <tr style="cursor: pointer;">
                     <td class="text-center"></td>
                     <td class="text-center">{{item.name}}</td>
-                    <td class="text-center"><button type="button" class="btn btn-secondary">Hapus</button></td>
+                    <td class="text-center"><a class="btn btn-dark" href="{% url 'trigger_5:delete_kategori_restoran' item.id %}">Hapus</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
