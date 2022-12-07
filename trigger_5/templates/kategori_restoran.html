@@ -42,23 +42,20 @@
         <table class="table table-hover rounded rounded-3 overflow-hidden">
             <thead class="table" style="background-color: #2D55D0; color: #fff;">
                 <tr>
+                    <th class="text-center" style="padding: 1rem 1rem;">No</th>
                     <th class="text-center" style="padding: 1rem 1rem;">Kategori Restoran</th>
                     <th class="text-center" style="padding: 1rem 1rem;">Aksi</th>
                 </tr>
                 
             </thead>
             <tbody id ="report_table" >
+                {% for item in item_list %}
                 <tr style="cursor: pointer;">
-                    <td class="text-center">Indonesia</td>
-                    <td class="text-center"><button type="button" class="btn btn-secondary">Hapus</button></td>
+                    <td class="text-center"></td>
+                    <td class="text-center">{{item.name}}</td>
+                    <td class="text-center"><a class="btn btn-dark" href="{% url 'trigger_5:delete_kategori_restoran' item.id %}">Hapus</a></td>
                 </tr>
-                <tr style="cursor: pointer;">
-                    <td class="text-center">India</td>
-                </tr>
-                <tr style="cursor: pointer;">
-                    <td class="text-center">Jepang</td>
-                    <td class="text-center"><button type="button" class="btn btn-secondary">Hapus</button></td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
