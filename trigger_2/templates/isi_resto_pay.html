@@ -16,8 +16,6 @@
 
 {% block content %}
 
-{% include 'navbar_kurir.html' %}
-
 <div class="row">
     <div class="col">
         <h2 class="lead pt-4 pb-3">FORM ISI SALDO</h1>
@@ -26,27 +24,34 @@
         <div class="card-body border-dark" style="width: 500px;">
 
         <div class="pb-3 pt-2 d-flex justify-content-center">
-            <h3 class="lead pt-2">Saldo saat ini: 120000</h3>
+            <h3 class="lead pt-2">Saldo saat ini: {{query.restopay}}</h3>
         </div>
 
-        <div class="pb-4 pt-2 d-flex justify-content-center">
-            <h3 class="lead pt-2">Nominal Penarikan:</h3>
-            <input type="text" class="form-control">
-        </div>
+        <form method="post" class="login">
+            {% csrf_token %}
 
-        <div class="py-2 d-flex justify-content-center">
-            <h3 class="lead">dari:</h3>
-        </div>
+            <div class="pb-4 pt-2 d-flex justify-content-center">
+                <h3 class="lead pt-2">Nominal Pengisian:</h3>
+                <input type="text" name="isi" id="isi" class="form-control"style="width: 70%;">
+            </div>
 
-        <div class="pb-3 pt-2 d-flex justify-content-center">
-            <h3 class="lead pt-2">Nama Bank: BNI</h3>
-        </div>
+            <div class="py-2 d-flex justify-content-center">
+                <h3 class="lead">dari:</h3>
+            </div>
 
-        <div class="pb-3 pt-2 d-flex justify-content-center">
-            <h3 class="lead pt-2">Nomor Rekening: 4715730078928</h3>
-        </div>
+            <div class="pb-3 pt-2 d-flex justify-content-center">
+                <h3 class="lead pt-2">Nama Bank: {{query.bankname}}</h3>
+            </div>
 
-        <input type="submit" class="btn my-4 border-dark" value="Simpan">
+            <div class="pb-3 pt-2 d-flex justify-content-center">
+                <h3 class="lead pt-2">Nomor Rekening: {{query.accountno}}</h3>
+            </div>
+
+            <div class="pb-3 pt-2 d-flex justify-content-center">
+                <button class="btn border-dark">Simpan</button>
+            </div>
+
+        </form>
         </div>
         </div>
 

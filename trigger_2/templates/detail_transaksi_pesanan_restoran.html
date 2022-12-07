@@ -26,45 +26,51 @@
         <div class="card-body border-dark" style="width: 500px;">
 
         <div class="pb-3 pt-2 d-flex justify-content-center">
-            <h3 class="lead pt-2">Waktu Pemesanan: 2020-12-05 13:08:54.193</h3>
+            <h3 class="lead pt-2">Waktu Pemesanan: {{datetime}}</h3>
         </div>
 
         <div class="pb-3 pt-2 d-flex justify-content-center">
-            <h3 class="lead pt-2">Nama Pelanggan: Lind Fenlon</h3>
-            <h3 class="lead pt-2">Jalan: Jalan Andir V No. 11</h3>
-            <h3 class="lead pt-2">Kecamatan: Andir</h3>
-            <h3 class="lead pt-2">Kota: Bandung</h3>
-            <h3 class="lead pt-2">Provinsi: Jawa Barat</h3>
+            <h3 class="lead pt-2">Nama Pelanggan: {{nama_pelanggan}}</h3>
+            <h3 class="lead pt-2">Jalan: {{jalan_pelanggan}}</h3>
+            <h3 class="lead pt-2">Kecamatan: {{kecamatan_pelanggan}}</h3>
+            <h3 class="lead pt-2">Kota: {{kota_pelanggan}}</h3>
+            <h3 class="lead pt-2">Provinsi: {{provinsi_pelanggan}}</h3>
         </div>
 
         <div class="pb-3 pt-2 d-flex justify-content-center">
-            <h3 class="lead pt-2">Restoran: Bones</h3>
-            <h3 class="lead pt-2">Jalan: Jalan Asia Afrika</h3>
-            <h3 class="lead pt-2">Kecamatan: Braga</h3>
-            <h3 class="lead pt-2">Kota: Bandung</h3>
-            <h3 class="lead pt-2">Provinsi: Jawa Barat</h3>
+            <h3 class="lead pt-2">Restoran: {{nama_restoran}}</h3>
+            <h3 class="lead pt-2">Jalan: {{jalan_restoran}}</h3>
+            <h3 class="lead pt-2">Kecamatan: {{kecamatan_restoran}}</h3>
+            <h3 class="lead pt-2">Kota: {{kota_restoran}}</h3>
+            <h3 class="lead pt-2">Provinsi: {{provinsi_restoran}}</h3>
         </div>
 
         <div class="pb-3 pt-2 d-flex justify-content-center">
             <h3 class="lead pt-2">Makanan yang dipesan</h3>
-            <h3 class="lead pt-2"> • Milk Chocolate Snacks (3)</h3>
-            <h3 class="lead pt-2">Total Harga Makanan: 10</h3>
-            <h3 class="lead pt-2">Total Diskon: 5</h3>
-            <h3 class="lead pt-2">Biaya Pengantaran: 15</h3>
-            <h3 class="lead pt-2">Total Biaya: 20</h3>
-            <h3 class="lead pt-2">Jenis Pembayaran: RestoPay Paylater</h3>
+            {% for m in makanan %}
+                {% if m.note == None %}
+                    <h3 class="lead pt-2"> • {{m.foodname}} ({{m.amount}})</h3>
+                {% else %}
+                    <h3 class="lead pt-2"> • {{m.foodname}} ({{m.amount}}) - {{m.note}}</h3>
+                {% endif %}
+            {% endfor %}
+            <h3 class="lead pt-2">Total Harga Makanan: {{total_harga_makanan}}</h3>
+            <h3 class="lead pt-2">Total Diskon: {{total_diskon}}</h3>
+            <h3 class="lead pt-2">Biaya Pengantaran: {{biaya_pengantaran}}</h3>
+            <h3 class="lead pt-2">Total Biaya: {{total_biaya}}</h3>
+            <h3 class="lead pt-2">Jenis Pembayaran: {{jenis_pembayaran}}</h3>
         </div>
 
         <div class="pb-3 pt-2 d-flex justify-content-center">
-            <h3 class="lead pt-2">Status Pembayaran: Berhasil</h3>
-            <h3 class="lead pt-2">Status Pesanan: Menunggu Konfirmasi Restoran</h3>
+            <h3 class="lead pt-2">Status Pembayaran: {{status_pembayaran}}</h3>
+            <h3 class="lead pt-2">Status Pesanan: {{status_pesanan}} Restoran</h3>
         </div>
 
         <div class="pb-3 pt-2 d-flex justify-content-center">
-            <h3 class="lead pt-2">Kurir: -</h3>
-            <h3 class="lead pt-2">Plat Kendaraan: -</h3>
-            <h3 class="lead pt-2">Jenis Kendaraan: -</h3>
-            <h3 class="lead pt-2">Merk Kendaraan: -</h3>
+            <h3 class="lead pt-2">Kurir: {{kurir}}</h3>
+            <h3 class="lead pt-2">Plat Kendaraan: {{plat_kendaraan}}</h3>
+            <h3 class="lead pt-2">Jenis Kendaraan: {{jenis_kendaraan}}</h3>
+            <h3 class="lead pt-2">Merk Kendaraan: {{merk_kendaraan}}</h3>
         </div>
 
         <div class="border border-dark rounded px-3 py-1 mt-4 my-2"><a href="../../read/" class="text-decoration-none text-dark">Kembali</a></div>
