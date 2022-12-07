@@ -82,11 +82,11 @@ DATABASES = {
     # KL BUAT LOCAL
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'sirest', 
+        'NAME': 'db22a011', 
         'USER': 'postgres',
-        'PASSWORD': 'password',
-        'HOST': '127.0.0.1', 
-        'PORT': '5432',
+        'PASSWORD': '2Pd3U4EMYczvOcVCfd28',
+        'HOST': 'containers-us-west-141.railway.app', 
+        'PORT': '6749',
     }
 }
 
