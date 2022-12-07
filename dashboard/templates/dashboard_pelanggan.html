@@ -18,7 +18,7 @@
 
 <div class="row">
     <div class="col">
-        <h2 class=" pt-4 pb-3"><strong>Dashboard Pengguna: Lind Fenlon</strong></h2>
+        <h2 class=" pt-4 pb-3"><strong>Dashboard Pengguna: {{nama}}</strong></h2>
     </div>
 </div>
 
@@ -30,27 +30,29 @@
         <div class="card-body border-dark" style="width: 500px;">
 
         <div class="pb-3 pt-2 d-flex justify-content-center">
-            <p class=" pt-2">Email: lfenlonf@google.ca</p>
-            <p class=" pt-2">Password: Password1234</p>
-            <p class=" pt-2">Nama: Lind Fenlon</p>
-            <p class=" pt-2">Nomor HP: 4482073878</p>
-            <p class=" pt-2">NIK: 332616150970911</p>
-            <p class=" pt-2">Nama bank: BCA</p>
-            <p class=" pt-2">Nomor rekening: 4124978825978</p>
+            <p class=" pt-2">Email: {{email}}</p>
+            <p class=" pt-2">Password: {{password}}</p>
+            <p class=" pt-2">Nama: {{nama}}</p>
+            <p class=" pt-2">Nomor HP: {{nomor_hp}}</p>
+            <p class=" pt-2">NIK: {{nik}}</p>
+            <p class=" pt-2">Nama bank: {{nama_bank}}</p>
+            <p class=" pt-2">Nomor rekening: {{nomor_rekening}}</p>
         </div>
 
         <div class="pb-3 pt-2 d-flex justify-content-center">
-            <p class=" pt-2">Tanggal lahir: 1989-12-25</p>
-            <p class=" pt-2">Jenis kelamin: F</p>
+            <p class=" pt-2">Tanggal lahir: {{tanggal_lahir}}</p>
+            <p class=" pt-2">Jenis kelamin: {{jenis_kelamin}}</p>
         </div>
 
         <div class="pb-3 pt-2 d-flex justify-content-center">
-            <p class=" pt-2">Status: Terverifikasi</p>
-            <p class=" pt-2">Diverifikasi oleh: Gabie Childrens</p>
+            <p class=" pt-2">Status: {{status}}</p>
+            {% if terverifikasi %}
+                <p class=" pt-2">Diverifikasi oleh: {{diverifikasi_oleh}}</p>
+            {% endif %}
         </div>
 
         <div class="pb-3 pt-2 d-flex justify-content-center">
-            <p class=" pt-2">Saldo RestoPay: 22300</p>
+            <p class=" pt-2">Saldo RestoPay: {{saldo_restopay}}</p>
         </div>
 
         </div>

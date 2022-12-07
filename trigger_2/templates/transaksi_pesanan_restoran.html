@@ -39,17 +39,23 @@
                 </tr>
                 </thead>
                 <tbody>
+                    {% for q in query %}
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Lind Fenlon</td>
-                        <td>2020-12-05 13:08:54.193</td>
-                        <td>Menunggu Konfirmasi Restoran</td>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{q.fname}} {{q.lname}}</td>
+                        <td>{{q.datetime}}</td>
+                        <td>{{q.status}}</td>
                         <td>
-                            <a href="../detail/1/">Detail</a>
+                            <a href="../detail/{{q.email}}/{{datetime}}/">Detail</a>
                             <br>
-                            <a href="../update/1/">Konfirmasi</a>
+                            {% if q.status_id == 'TS01' %}
+                                <a href="../update/{{q.email}}/{{datetime}}/">Konfirmasi</a>
+                            {% elif q.status_id == 'TS02' %}
+                                <a href="../update/{{q.email}}/{{datetime}}/">Kirim</a>
+                            {% endif %}
                         </td>
-                    </tr>                    
+                    </tr>    
+                    {% endfor %}                
                 </tbody>
             </table>
         </div>
