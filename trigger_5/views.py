@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from .forms import bahanMakananForm, kategoriRestoranForm
+from util.query import query
 # Create your views here.
 def show_bahan_makanan(request):
-    
     return render(request, 'bahan_makanan.html')
 
 def create_bahan_makanan(request):
@@ -13,7 +13,14 @@ def create_bahan_makanan(request):
     return render(request, 'bahan_makanan_create.html', context)
 
 def show_kategori_restoran(request):
-    return render(request, 'kategori_restoran.html')
+    data = {}
+    list_kategori_restoran = query(f"""
+    SELECT Name
+    FROM RESTAURANT_CATEGORY
+    """)
+    data['item_list'] = list_kategori_restoran
+    print(data['item_list'])
+    return render(request, 'kategori_restoran.html', data)
 
 def create_kategori_restoran(request):
     form_gen = kategoriRestoranForm()
