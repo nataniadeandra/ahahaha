@@ -18,7 +18,7 @@
 
 <div class="row">
     <div class="col">
-        <h2 class=" pt-4 pb-3"><strong>Dashboard Pengguna: Lind Fenlon</strong></h2>
+        <h2 class=" pt-4 pb-3"><strong>Dashboard Pengguna: {{nama}}</strong></h2>
     </div>
 </div>
 
@@ -27,27 +27,27 @@
 <div class="row">
     <div class="col">
         <div class="card my-4 shadow">
-        <div class="card-body border-dark" style="width: 500px;">
+        <div class="card-body border-dark" style="width: 950px;">
 
         <div class="pb-3 pt-2 d-flex justify-content-center">
-            <p class=" pt-2">Email: lfenlonf@google.ca</p>
-            <p class=" pt-2">Password: Password1234</p>
-            <p class=" pt-2">Nama: Lind Fenlon</p>
-            <p class=" pt-2">Nomor HP: 4482073878</p>
+            <p class=" pt-2">Email: {{email}}</p>
+            <p class=" pt-2">Password: {{password}}</p>
+            <p class=" pt-2">Nama: {{nama}}</p>
+            <p class=" pt-2">Nomor HP: {{nomor_hp}}</p>
         </div>
 
         <div class="card" style="width: 900px;">
 
             <div class="p-2 border-dark d-flex flex-row justify-content-start" style="width: 900px;">
-                <div class="d-flex flex-column justify-content-start p-2" style="width: 180px;">
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 280px;">
                     <h3 class="fs-6 text-wrap fw-normal">Email</h3>
                 </div>
 
-                <div class="d-flex flex-column justify-content-start p-2" style="width: 160px;">
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 100px;">
                     <h3 class="fs-6 text-wrap fw-normal">Nama</h3>
                 </div>
 
-                <div class="d-flex flex-column justify-content-start p-2" style="width: 200px;">
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 170px;">
                     <h3 class="fs-6 text-wrap fw-normal">Role</h3>
                 </div>
 
@@ -60,19 +60,28 @@
                 </div>
             </div>
 
-            
+            {% for p in pengguna %}
             <div class="p-2 border-dark d-flex flex-row justify-content-start" style="width: 900px;">
-                <div class="d-flex flex-column justify-content-start p-2" style="width: 180px;">
-                    <h3 class="fs-6 text-wrap fw-bold">mutia@gmail.com</h3>
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 280px;">
+                    <h3 class="fs-6 text-wrap fw-bold">{{p.email}}</h3>
                 </div>
 
-                <div class="d-flex flex-column justify-content-start p-2" style="width: 160px;">
-                    <h3 class="fs-6 text-wrap fw-semibold">Mutia Anisa</h3>
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 100px;">
+                    <h3 class="fs-6 text-wrap fw-semibold">{{p.fname}} {{p.lname}}</h3>
                 </div>
 
-                <div class="d-flex flex-column justify-content-start p-2" style="width: 200px;">
-                    <h3 class="fs-6 text-wrap fw-semibold">Pelanggan</h3>
+                <div class="d-flex flex-column justify-content-start p-2" style="width: 170px;">
+                    {% if p.pelanggan == 1 %}
+                        <h3 class="fs-6 text-wrap fw-semibold">Pelanggan</h3>                    
+                    {% elif p.restoran == 1 %}
+                        <h3 class="fs-6 text-wrap fw-semibold">Restoran</h3>                    
+                    {% elif p.kurir == 1 %}
+                        <h3 class="fs-6 text-wrap fw-semibold">Kurir</h3>
+                    {% endif %}
                 </div>
+
+                
+                {% if p.terverifikasi == 1 %}
 
                 <div class="d-flex flex-column justify-content-start p-2" style="width: 180px;">
                     <div class="d-flex border border-success rounded-4 bg-success py-1 px-1 gap-2ss align-items-center text-success" style="--bs-bg-opacity: .2;"> 
@@ -81,8 +90,22 @@
                                 <circle cx="4.67761" cy="4.39967" r="4" fill="#198754"/>
                             </svg>        
                         </div>
-                        Terverifikasi
+                            Terverifikasi
                     </div>
+
+                    {% else %}
+
+                    <div class="d-flex border border-danger rounded-4 bg-danger py-1 px-1 gap-2ss align-items-center text-danger" style="--bs-bg-opacity: .2;"> 
+                        <div class="px-2">
+                            <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="4.67761" cy="4.39967" r="4" fill="#ff0000"/>
+                            </svg>        
+                        </div>
+                            Belum Terverifikasi
+                    </div>
+
+                    {% endif %}
+
                 </div>
                 
                 <div class="d-flex flex-row justify-content-start p-2" style="width: 200px;">
@@ -91,6 +114,7 @@
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
 
     </div>

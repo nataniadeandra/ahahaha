@@ -114,7 +114,7 @@ def update_transaksi_pesanan_restoran(request, email, datetime, status_id):
     get_query(
         f'''
         INSERT INTO sirest.transaction_history
-        VALUES ('{email}', '{datetime}', '{new_status_id}', '{current_date}')
+        VALUES ('{email}', '{datetime}', '{new_status_id}', '{current_date}');
         '''
     )
 
