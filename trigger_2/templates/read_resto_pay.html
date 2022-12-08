@@ -16,6 +16,14 @@
 
 {% block content %}
 
+{% if role == 'Pelanggan' %}
+    {% include 'navbar_pelanggan.html' %}
+{% elif role == 'Restoran' %}
+    {% include 'navbar_restoran.html' %}
+{% elif role == 'Kurir' %}
+    {% include 'navbar_kurir.html' %}
+{% endif %}
+
 <div class="row">
     <div class="col">
         <h2 class="lead pt-4 pb-3">RestoPay</h1>
