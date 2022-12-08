@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'login_page',
     'trigger_5',
     'trigger_2',
+    'trigger_4',
     'trigger_6',
     'dashboard',
 ]
