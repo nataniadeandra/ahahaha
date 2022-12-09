@@ -43,15 +43,15 @@
                     <tr>
                         <th scope="row">{{ forloop.counter }}</th>
                         <td>{{q.fname}} {{q.lname}}</td>
-                        <td>{{q.datetime}}</td>
+                        <td>{{q.dt|slice:":23"}}</td>
                         <td>{{q.status}}</td>
                         <td>
-                            <a href="../detail/{{q.email}}/{{datetime}}/">Detail</a>
+                            <a href="../detail/{{q.email}}/{{q.dt|slice:":23"}}/">Detail</a>
                             <br>
                             {% if q.status_id == 'TS01' %}
-                                <a href="../update/{{q.email}}/{{datetime}}/{{q.status_id}}/">Konfirmasi</a>
+                                <a href="../update/{{q.email}}/{{q.dt|slice:":23"}}/{{q.status_id}}/">Konfirmasi</a>
                             {% elif q.status_id == 'TS02' %}
-                                <a href="../update/{{q.email}}/{{datetime}}/{{q.status_id}}/">Kirim</a>
+                                <a href="../update/{{q.email}}/{{q.dt|slice:":23"}}/{{q.status_id}}/">Kirim</a>
                             {% endif %}
                         </td>
                     </tr>    

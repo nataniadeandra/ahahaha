@@ -83,24 +83,28 @@ def read_transaksi_pesanan_restoran(request):
 
     query = get_query(
         f'''
-        SELECT distinct uac.fname as fname, uac.lname as lname, uac.email as email, tf.datetime as datetime, ts.name as status, ts.id as status_id
+        SELECT distinct th.*, ua.fname, ua.lname, ts.name as status
+        FROM (
+        SELECT email, to_char(datetime::timestamp, 'YYYY-MM-DD HH24:MI:ss.US') as dt, first_value(tsid)
+        OVER (
+        PARTITION BY email, datetime
+        ORDER BY tsid desc
+        RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING
+        ) status_id
+        FROM sirest.transaction_history) th
+        NATURAL JOIN sirest.user_acc ua
+        INNER JOIN sirest.transaction_status ts ON ts.id = th.status_id
+        WHERE (th.email, th.dt) IN (
+        SELECT tf.email, to_char(tf.datetime::timestamp, 'YYYY-MM-DD HH24:MI:ss.US') as dt
         FROM sirest.transaction_food tf
-        INNER JOIN sirest.restaurant r ON tf.rname = r.rname and tf.rbranch = r.rbranch
-        INNER JOIN sirest.user_acc uar ON r.email = uar.email
-        INNER JOIN sirest.user_acc uac ON tf.email = uac.email
-        INNER JOIN sirest.transaction t ON tf.email = t.email and tf.datetime = t.datetime
-        INNER JOIN sirest.transaction_history th ON t.email = th.email and t.datetime = th.datetime
-        INNER JOIN sirest.transaction_status ts ON th.tsid = ts.id
-        WHERE uar.email = '{email}' and (ts.id = 'TS01' or ts.id = 'TS02' or ts.id = 'TS03')
-        ORDER BY ts.id DESC
-        LIMIT 1;
+        INNER JOIN sirest.restaurant r ON r.rname = tf.rname and r.rbranch = tf.rbranch
+        WHERE r.email = '{email}' and (ts.id = 'TS01' or ts.id = 'TS02' or ts.id = 'TS03'));
         '''
     )
 
-    if (len(query) == 0):
-        return render(request, 'transaksi_pesanan_restoran.html', {"query" : query})
-    else:
-        return render(request, 'transaksi_pesanan_restoran.html', {"query" : query, "datetime" : str(query[0].datetime)[:23]})
+    print(query)
+
+    return render(request, 'transaksi_pesanan_restoran.html', {"query" : query})
 
 def update_transaksi_pesanan_restoran(request, email, datetime, status_id):
 
@@ -118,9 +122,31 @@ def update_transaksi_pesanan_restoran(request, email, datetime, status_id):
         '''
     )
 
+    if new_status_id == 'TS03':
+        random_id = get_query(
+            f'''
+            SELECT email
+            FROM sirest.courier
+            ORDER BY RANDOM()
+            LIMIT 1;
+            '''
+        )[0][0]
+
+        print("random_id " + random_id)
+
+        get_query(
+            f'''
+            UPDATE sirest.transaction
+            SET courierid = '{random_id}'
+            WHERE email = '{email}' and datetime = '{datetime}'
+            '''
+        )
+
     return redirect("../../../../read/")
 
 def detail_transaksi_pesanan_restoran(request, email, datetime):
+    
+    datetime = datetime.strip()
 
     nama_pelanggan = get_query(
         f'''
