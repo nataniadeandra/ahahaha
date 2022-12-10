@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+
+{% endblock meta %}
+
+{% block content %}
+
+{% include 'navbar_admin.html' %}
+<div class="d-flex flex-row justify-content-center ">
+    <div class="d-flex flex-column align-items-center">
+        
+        <h2 class="lead pt-4 pb-3">PILIH MENU</h1>
+        
+        <!-- cards -->
+        <div class="card" style="width: 900px;">
+
+            <div class="px-2 py-3 border-dark d-flex flex-row align-items-center" style="width: 100%;">
+              <div class="d-flex flex-column align-items-center px-2 fs-6 text-wrap fw-normal" 
+              style="width: 5%;">No</div>
+              
+              <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+              style="width: 25%;">Nama Makanan</div>
+
+              <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+              style="width: 20%;">Harga</div>
+              
+              <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+              style="width: 20%;">Jumlah</div>
+
+              <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+              style="width: 30%;">Catatan</div>
+            </div>
+            
+            <form id="form-tpel-" method="POST">
+                {% csrf_token %}
+                <div class="px-2 border-dark d-flex flex-column align-items-center " style="width: 100%;">
+                    {% for m in menu_list %}
+                    <div class="d-flex flex-row align-items-center" style="width: 100%;">
+                        
+                        <!-- No -->
+                        <div class="d-flex flex-column align-items-end px-2 fs-6 text-wrap fw-normal" 
+                        style="width: 5%;" >{{ forloop.counter }}</div>
+                        <!-- Menu -->
+                        <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-bold" 
+                        style="width: 25%;" >{{ m.foodname }}</div>
+                        <!-- Harga -->
+                        <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-semibold" 
+                        style="width: 20%;" >{{ m.price }}</div>
+                        <!-- Jumlah -->
+                        <div class="d-flex flex-row gap-2 align-items-start px-2 fs-6 text-wrap fw-semibold"
+                        style="width: 20%;">
+                            <input id="jumlah-{{ forloop.counter }}" name="jumlah-{{ forloop.counter }}" type="number" value="0" min=0 max=99 required>
+                        </div>
+                        <!-- Catatan -->
+                        <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-semibold"
+                        style="width: 30%;">
+                            <input id="catatan-{{ forloop.counter }}" name="catatan-{{ forloop.counter }}" type="text" width="100%">
+                        </div>
+                    </div>
+                    <div class="pt-3"></div>
+                    {% endfor %}
+                    <div class="d-flex flex-row justify-content-between px-3 py-1 align-items-center" style="width: 100%;"> 
+                        <label for="vehicle" class="fs-6 text-wrap fw-normal" style="width: 60%;">Metode Pengantaran</label>
+                        <select id="vehicle" name="vehicle" placeholder="Metode Pengantaran" class="form-control" style="width: 40%;" required>
+                            <option>Motor</option>
+                            <option>Mobil</option>
+                        </select>
+                    </div>
+                    <div class="d-flex flex-row justify-content-between px-3 py-1 align-items-center" style="width: 100%;"> 
+                        <label for="payment" class="fs-6 text-wrap fw-normal" style="width: 60%;">Metode Pembayaran</label>
+                        <select id="payment" name="payment" placeholder="Metode Pembayaran" class="form-control" style="width: 40%;" required>
+                            {% for p in payment_list %}
+                            <option>{{ p.name }}</option>
+                            {% endfor %}     
+                        </select>
+                    </div>
+                    <div class="pt-2"></div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Pesan</button>
+                    <div class="pt-3"></div>
+                </div>
+                </div>
+                <div class="d-flex flex-row py-1">
+                </div>
+            </form>
+            
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}
