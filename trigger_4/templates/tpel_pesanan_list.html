@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+
+{% endblock meta %}
+
+{% block content %}
+
+{% include 'navbar_admin.html' %}
+<div class="d-flex flex-row justify-content-center ">
+    <div class="d-flex flex-column align-items-center">
+        
+        <h2 class="lead pt-4 pb-3">DAFTAR PESANAN</h1>
+        
+        <!-- cards -->
+        <div class="card" style="width: 900px;">
+
+            <div class="px-2 py-3 border-dark d-flex flex-row align-items-center" style="width: 100%;">
+              <div class="d-flex flex-column align-items-center px-2 fs-6 text-wrap fw-normal" 
+              style="width: 5%;">No</div>
+              
+              <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+              style="width: 35%;">Nama Makanan</div>
+
+              <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+              style="width: 20%;">Harga</div>
+              
+              <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+              style="width: 20%;">Jumlah</div>
+
+              <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+              style="width: 20%;">Total</div>
+            </div>
+
+            {% for o in order %}
+            <div class="px-2 py-3 border-dark d-flex flex-row align-items-center" style="width: 100%;">
+                <div class="d-flex flex-column align-items-center px-2 fs-6 text-wrap fw-normal" 
+                style="width: 5%;">{{ forloop.counter }}</div>
+                
+                <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-semibold" 
+                style="width: 35%;">{{ o.foodname }}</div>
+
+                <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+                style="width: 20%;">{{ o.price }}</div>
+                
+                <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+                style="width: 20%;">{{ o.amount }}</div>
+
+                <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+                style="width: 20%;">{{ o.subtotal }}</div>
+            </div>
+            {% endfor %}
+
+            <div class="px-2 py-3 border-dark d-flex flex-row align-items-center" style="width: 100%;">
+                <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+                style="width: 60%;">Metode Pengantaran</div>
+                
+                <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+                style="width: 40%;">{{ vehicle }}</div>
+            </div>
+
+            <div class="px-2 py-3 border-dark d-flex flex-row align-items-center" style="width: 100%;">
+                <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+                style="width: 60%;">Metode Pembayaran</div>
+                
+                <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+                style="width: 40%;">{{ payment }}</div>
+            </div>
+
+            <div class="px-2 py-3 border-dark d-flex flex-row align-items-center" style="width: 100%;">
+                <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+                style="width: 60%;">Total Diskon</div>
+                
+                <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+                style="width: 40%;">0</div>
+            </div>
+
+            <div class="px-2 py-3 border-dark d-flex flex-row align-items-center" style="width: 100%;">
+                <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+                style="width: 60%;">Biaya Pengantaran</div>
+                
+                <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+                style="width: 40%;">4000</div>
+            </div>
+
+            <div class="px-2 py-3 border-dark d-flex flex-row align-items-center" style="width: 100%;">
+                <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+                style="width: 60%;">Total Biaya</div>
+                
+                <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+                style="width: 40%;">15000</div>
+            </div>
+            
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}

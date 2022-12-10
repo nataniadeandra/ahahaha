@@ -12,34 +12,37 @@
         
         <h2 class="lead pt-4 pb-3">KATEGORI MAKANAN LIST</h1>
         
-        {% if request.session.role == "admin" %}
+        
 
         <!-- cards -->
         <div class="card" style="width: 900px;">
 
-            <div class="px-2 py-3 border-dark d-flex flex-row justify-content-start" style="width: 100%;">
-              <p class="d-flex flex-column align-items-center px-2 fs-6 text-wrap fw-normal" 
-              style="width: 5%;">No</p>
+            <div class="px-2 py-3 border-dark d-flex flex-row align-items-center" style="width: 100%;">
+              <div class="d-flex flex-column align-items-center px-2 fs-6 text-wrap fw-normal" 
+              style="width: 5%;">No</div>
               
-              <p class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
-              style="width: 75%;">Nama Kategori Makanan</p>
+              <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+              style="width: 75%;">Nama Kategori Makanan</div>
               
-              <p class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
-              style="width: 20%;">Aksi</p>
+              <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+              style="width: 20%;">Aksi</div>
             </div>
 
             
-            {% for k in data %}
-            <div class="px-2 border-dark d-flex flex-row justify-content-start" style="width: 100%;">
-              <p class="d-flex flex-column align-items-end px-2 fs-6 text-wrap fw-normal" 
-              style="width: 5%;">{{ forloop.counter }}</p>
+            {% for k in kategori_makanan %}
+            <div class="px-2 border-dark d-flex flex-row align-items-center" style="width: 100%;">
+              <div class="d-flex flex-column align-items-end px-2 fs-6 text-wrap fw-normal" 
+              style="width: 5%;">{{ forloop.counter }}</div>
               
-              <p class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
-              style="width: 75%;">{{ k.name }}</p>
+              <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+              style="width: 75%;">{{ k.name }}</div>
 
               <div style="width: 20%;">
-                <a href="{% url '../hapus' id=k.id %}" type="button" class="btn btn-primary">Detail</a>
+                <a href="{% url 'trigger_4:hapus-kategori-makanan' id=k.id %}" type="submit" class="btn btn-sm btn-danger">Hapus</a>
               </div>
+
+            </div>
+            <div class="d-flex flex-row py-1">
             </div>
             {% endfor %}
 
@@ -49,7 +52,5 @@
 
     </div>
 </div>
-
-{% endif %}
 
 {% endblock content %}

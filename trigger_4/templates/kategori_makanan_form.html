@@ -8,22 +8,22 @@
 
 {% include 'navbar_admin.html' %}
 <div class="d-flex flex-row justify-content-center">
-    <div class="d-flex flex-column align-items-center">
-        
-        <h2 class="lead pt-4 pb-3">FORM BUAT KATEGORI MAKANAN</h1>
-        
-        <!-- cards -->
-        <div class="card d-flex flex-column align-items-center" style="width: 90%;">
-            
-            <div class="d-flex flex-row justify-content-between p-3 align-items-center" style="width: 100%;"> 
-                <label for="name" class="fs-6 text-wrap fw-normal" style="width: 60%;">Nama Kategori Makanan</label>
-                <input type="text" id="name" name="name" required="required" placeholder="Kategori Baru" class="form-control" style="width: 40%;">
+    <div class="d-flex flex-column align-items-center"> 
+        <form method="post">
+            {% csrf_token %}
+            <h2 class="lead pt-4 pb-3">FORM BUAT KATEGORI MAKANAN</h1>
+            <!-- cards -->
+            <div class="card d-flex flex-column align-items-center" style="width: 900px;">
+                
+                <div class="d-flex flex-row justify-content-between p-3 align-items-center" style="width: 100%;"> 
+                    <label for="name" class="fs-6 text-wrap fw-normal" style="width: 60%;">Nama Kategori Makanan</label>
+                    <input type="text" id="name" name="name" placeholder="Kategori Baru" class="form-control" style="width: 40%;" required>
+                </div>
             </div>
-        </div>
-        
-        <div class="pt-3"></div>
-        <a type="submit" class="btn btn-dark">Simpan</a>
-
+            
+            <div class="pt-3"></div>
+            <button type="submit" class="btn btn-dark">Simpan</button>
+        </form>
     </div>
 </div>
 
