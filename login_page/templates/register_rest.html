@@ -13,43 +13,44 @@
 
         <div class="d-flex flex-row justify-content-between" style="width: 500px;">    
                     
-            <div class="card d-flex flex-column" style="width: 100%;">  
-
+            <div class="card d-flex flex-column" style="width: 100%;">
+                <form method="POST" id="form">
+                    {% csrf_token %}  
                 <!-- Pricing -->
                 <div class="d-flex flex-column justify-content-between p-3 gap-3" style="width: 100%;">
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <h3 class="fs-6 text-wrap fw-normal pt-2" style="width: 30%;">Email</h3>
-                        <input type="email" class="form-control"style="width: 70%;">
+                        <input type="email" name="email" class="form-control"style="width: 70%;" required>
                     </div>                      
                     
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <h3 class="fs-6 text-wrap fw-normal pt-2" style="width: 30%;">Password</h3>
-                        <input type="password" class="form-control"style="width: 70%;">
+                        <input type="password" name="password" class="form-control"style="width: 70%;" required>
                     </div>       
 
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <h3 class="fs-6 text-wrap fw-normal pt-2" style="width: 30%;">Nama</h3>
-                        <input type="text" class="form-control"style="width: 70%;">
+                        <input type="text" name="nama" class="form-control"style="width: 70%;" required>
                     </div>  
 
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <h3 class="fs-6 text-wrap fw-normal pt-2" style="width: 30%;">No HP</h3>
-                        <input type="tel" class="form-control"style="width: 70%;">
+                        <input type="tel" name="no_hp" class="form-control"style="width: 70%;" required>
                     </div>                      
 
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <h3 class="fs-6 text-wrap fw-normal pt-2" style="width: 30%;">NIK</h3>
-                        <input type="tel" class="form-control"style="width: 70%;">
+                        <input type="tel" name="nik" class="form-control"style="width: 70%;" required>
                     </div>                      
 
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <h3 class="fs-6 text-wrap fw-normal pt-2" style="width: 30%;">Nama Bank</h3>
-                        <input type="tel" class="form-control"style="width: 70%;">
+                        <input type="tel" name="nama_bank" class="form-control"style="width: 70%;" required>
                     </div>                      
 
                     <div class="pb-3 d-flex flex-row justify-content-between align-items-center">
                         <h3 class="fs-6 text-wrap fw-normal pt-2" style="width: 30%;">No Rekening</h3>
-                        <input type="tel" class="form-control"style="width: 70%;">
+                        <input type="tel" name="no_rek" class="form-control"style="width: 70%;" required>
                     </div>                      
 
 
@@ -58,58 +59,61 @@
 
                     <div class="pt-3 d-flex flex-row justify-content-between align-items-center">
                         <h3 class="fs-6 text-wrap fw-normal pt-2" style="width: 30%;">Nama Restoran</h3>
-                        <input type="tel" class="form-control"style="width: 70%;">
+                        <input type="tel" name="nama_restoran" class="form-control"style="width: 70%;" required>
                     </div>                      
 
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <h3 class="fs-6 text-wrap fw-normal pt-2" style="width: 30%;">Cabang</h3>
-                        <input type="tel" class="form-control"style="width: 70%;">
+                        <input type="tel" name="cabang" class="form-control"style="width: 70%;" required>
                     </div>                      
 
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <h3 class="fs-6 text-wrap fw-normal pt-2" style="width: 30%;">No Telp</h3>
-                        <input type="tel" class="form-control"style="width: 70%;">
+                        <input type="tel" name="no_telp" class="form-control"style="width: 70%;" required>
                     </div>                      
 
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <h3 class="fs-6 text-wrap fw-normal pt-2" style="width: 30%;">Jalan</h3>
-                        <input type="tel" class="form-control"style="width: 70%;">
+                        <input type="tel" name="jalan" class="form-control"style="width: 70%;" required>
                     </div>                      
 
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <h3 class="fs-6 text-wrap fw-normal pt-2" style="width: 30%;">Kecamatan</h3>
-                        <input type="tel" class="form-control"style="width: 70%;">
+                        <input type="tel" name="kecamatan" class="form-control"style="width: 70%;" required>
                     </div>                      
 
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <h3 class="fs-6 text-wrap fw-normal pt-2" style="width: 30%;">Kota</h3>
-                        <input type="tel" class="form-control"style="width: 70%;">
+                        <input type="tel" name="kota" class="form-control"style="width: 70%;" required> 
                     </div>                      
 
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <h3 class="fs-6 text-wrap fw-normal pt-2" style="width: 30%;">Provinsi</h3>
-                        <select class="form-select" aria-label="Default select example" style="width: 70%;">
+                        <select class="form-select" name = 'provinsi' aria-label="Default select example" style="width: 70%;" required>
                             <option hidden></option>
-                            <option value="DKI Jakarta">DKI Jakarta</option>
-                            <option value="Banten">Banten</option>
+                            {% for item in province %}
+                            <option value="{{item.province}}">{{item.province}}</option>
+                            {% endfor %}
                         </select>
                     </div>   
 
                     <div class="d-flex flex-row justify-content-between align-items-center">
-                        <h3 class="fs-6 text-wrap fw-normal pt-2" style="width: 30%;">Jenis Kelamin</h3>
-                        <select class="form-select" aria-label="Default select example" style="width: 70%;">
+                        <h3 class="fs-6 text-wrap fw-normal pt-2" style="width: 30%;">Kategori Restoran</h3>
+                        <select class="form-select" name = 'kategori_restoran' aria-label="Default select example" style="width: 70%;" required>
                             <option hidden></option>
-                            <option value="Cofeeshop">Coffeeshop</option>
-                            <option value="Warung">Warung</option>
+                            {% for item in res_category %}
+                            <option value="{{item.id}}">{{item.name}}</option>
+                            {% endfor %}
                         </select>
                     </div>   
                                    
                 </div>
 
                 <div class="d-flex flex-column justify-content-between px-3 pt-5 pb-3 gap-3" style="width: 100%;">
-                    <a onClick="javascript:history.go(-1);" type="button" class="btn btn-primary">Register</a>
+                    <button id="SubmitButton" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Register</button>
                 </div>
                 
+                </form>
             </div>
         </div>
 

@@ -19,7 +19,7 @@
                     Pesanan
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Pesanan Berlangsung</a>
+                  <a class="dropdown-item" href="{% url 'trigger_5:show_transaksi_pesanan_kurir' %}">Pesanan Berlangsung</a>
                   <a class="dropdown-item" href="#">Riwayat Pesanan</a>
                 </div>
               </li>
@@ -27,7 +27,7 @@
                 <a class="nav-link" href="#"><span class="sr-only">RestoPay</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#"><span class="sr-only">Logout</span></a>
+                <a class="nav-link" href="{% url 'login_page:logout' %}"><span class="sr-only">Logout</span></a>
             </li>
           </ul>
         </div>

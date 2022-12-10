@@ -1,22 +1,6 @@
 from collections import namedtuple
-import psycopg2
-from psycopg2 import Error
+
 from django.db import connection
-from django.db import DatabaseError, IntegrityError, transaction
-
-try:
-
-    connection = psycopg2.connect(user="postgres",
-                        password="2Pd3U4EMYczvOcVCfd28",
-                        host="containers-us-west-141.railway.app",
-                        port="6749",
-                        database="db22a011")
-
-    # Create a cursor to perform database operations
-    cursor = connection.cursor()
-        
-except (Exception, Error) as error:
-    print("Error while connecting to PostgreSQL", error)
 
 # Create your views here.
 def is_authenticated(request):
@@ -36,16 +20,8 @@ def namedtuplefetchall(cursor):
 
 def get_query(str):
     '''Execute SQL query and return its result as a list'''
-    
     cursor = connection.cursor()
     result = []
-
-    try:
-        cursor.execute("SET SEARCH_PATH TO SIREST")
-    except Exception as e:
-        hasil = e
-        transaction.rollback()
-
     try:
         cursor.execute(str)
         result = namedtuplefetchall(cursor)

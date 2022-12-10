@@ -18,17 +18,19 @@
             </div>
             
             <div class="d-flex flex-column align-items-center justify-content-center p-2 gap-3">
+                {% if request.session.role == 'admin' %}
                 <div>
-                    <a href="../detail_riwayat_transaksi/1/" type="button" class="btn btn-primary">Admin</a>
+                    <a href="../register/admin" type="button" class="btn btn-primary">Admin </a>
+                </div>
+                {% endif %}
+                <div>
+                    <a href="../register/cust" type="button" class="btn btn-primary">Pelanggan</a>
                 </div>
                 <div>
-                    <a href="../detail_riwayat_transaksi/1/" type="button" class="btn btn-primary">Pelanggan</a>
+                    <a href="../register/rest" type="button" class="btn btn-primary">Restoran</a>
                 </div>
                 <div>
-                    <a href="../detail_riwayat_transaksi/1/" type="button" class="btn btn-primary">Restoran</a>
-                </div>
-                <div>
-                    <a href="../detail_riwayat_transaksi/1/" type="button" class="btn btn-primary">Kurir</a>
+                    <a href="../register/cour" type="button" class="btn btn-primary">Kurir</a>
                 </div>
             </div>
             <div class="pt-3"></div>
