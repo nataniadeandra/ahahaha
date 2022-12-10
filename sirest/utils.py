@@ -87,3 +87,11 @@ def get_role(email, password):
 
     print("not verified")
     return ""
+
+def get_session_data(request):
+    if not is_authenticated(request):
+        return {}
+    try:
+        return {"email": request.session["email"], "role": request.session["role"]}
+    except:
+        return {}

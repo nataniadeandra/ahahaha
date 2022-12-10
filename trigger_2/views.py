@@ -1,10 +1,12 @@
 from django.shortcuts import redirect, render
 from sirest.utils import *
 
+from datetime import datetime as dt
+
 # Create your views here.
 def read_resto_pay(request):
-    email = str(request.session["email"])
-    role = str(request.session["role"])
+    email = str(request.session["email"]).strip()
+    role = str(request.session["role"]).strip()
 
     query = get_query(
         f'''
@@ -46,8 +48,8 @@ def isi_resto_pay(request):
 
 def tarik_resto_pay(request):
     
-    email = str(request.session["email"])
-    role = str(request.session["role"])
+    email = str(request.session["email"]).strip()
+    role = str(request.session["role"]).strip()
 
     query = get_query(
         f'''
@@ -77,47 +79,74 @@ def tarik_resto_pay(request):
 
 def read_transaksi_pesanan_restoran(request):
 
-    email = str(request.session["email"])
+    email = str(request.session["email"]).strip()
 
     query = get_query(
         f'''
-        SELECT distinct uac.fname as fname, uac.lname as lname, uac.email as email, tf.datetime as datetime, ts.name as status, ts.id as status_id
+        SELECT distinct th.*, ua.fname, ua.lname, ts.name as status
+        FROM (
+        SELECT email, to_char(datetime::timestamp, 'YYYY-MM-DD HH24:MI:ss.US') as dt, first_value(tsid)
+        OVER (
+        PARTITION BY email, datetime
+        ORDER BY tsid desc
+        RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING
+        ) status_id
+        FROM sirest.transaction_history) th
+        NATURAL JOIN sirest.user_acc ua
+        INNER JOIN sirest.transaction_status ts ON ts.id = th.status_id
+        WHERE (th.email, th.dt) IN (
+        SELECT tf.email, to_char(tf.datetime::timestamp, 'YYYY-MM-DD HH24:MI:ss.US') as dt
         FROM sirest.transaction_food tf
-        INNER JOIN sirest.restaurant r ON tf.rname = r.rname and tf.rbranch = r.rbranch
-        INNER JOIN sirest.user_acc uar ON r.email = uar.email
-        INNER JOIN sirest.user_acc uac ON tf.email = uac.email
-        INNER JOIN sirest.transaction t ON tf.email = t.email and tf.datetime = t.datetime
-        INNER JOIN sirest.transaction_history th ON t.email = th.email and t.datetime = th.datetime
-        INNER JOIN sirest.transaction_status ts ON th.tsid = ts.id
-        WHERE uar.email = '{email}';
+        INNER JOIN sirest.restaurant r ON r.rname = tf.rname and r.rbranch = tf.rbranch
+        WHERE r.email = '{email}' and (ts.id = 'TS01' or ts.id = 'TS02' or ts.id = 'TS03'));
         '''
     )
 
-    datetime = str(query[0].datetime)[:23]
+    print(query)
 
-    return render(request, 'transaksi_pesanan_restoran.html', {"query" : query, "datetime" : datetime})
+    return render(request, 'transaksi_pesanan_restoran.html', {"query" : query})
 
-def update_transaksi_pesanan_restoran(request, email, datetime):
+def update_transaksi_pesanan_restoran(request, email, datetime, status_id):
+
+    if (status_id == 'TS01'):
+        new_status_id = 'TS02'
+    elif (status_id == 'TS02'):
+        new_status_id = 'TS03'
+
+    current_date = str(dt.now())[:23]
 
     get_query(
         f'''
-        UPDATE sirest.transaction_history
-        SET tsid = 'TS02'
-        WHERE email = '{email}' and datetime = '{datetime}' and tsid = 'TS01';
+        INSERT INTO sirest.transaction_history
+        VALUES ('{email}', '{datetime}', '{new_status_id}', '{current_date}');
         '''
     )
 
-    get_query(
-        f'''
-        UPDATE sirest.transaction_history
-        SET tsid = 'TS03'
-        WHERE email = '{email}' and datetime = '{datetime}' and tsid = 'TS02';
-        '''
-    )
+    if new_status_id == 'TS03':
+        random_id = get_query(
+            f'''
+            SELECT email
+            FROM sirest.courier
+            ORDER BY RANDOM()
+            LIMIT 1;
+            '''
+        )[0][0]
 
-    return redirect("../../../read/")
+        print("random_id " + random_id)
+
+        get_query(
+            f'''
+            UPDATE sirest.transaction
+            SET courierid = '{random_id}'
+            WHERE email = '{email}' and datetime = '{datetime}'
+            '''
+        )
+
+    return redirect("../../../../read/")
 
 def detail_transaksi_pesanan_restoran(request, email, datetime):
+    
+    datetime = datetime.strip()
 
     nama_pelanggan = get_query(
         f'''
@@ -153,12 +182,61 @@ def detail_transaksi_pesanan_restoran(request, email, datetime):
 
     pengantaran = get_query(
         f'''
-        SELECT t.totalfood, t.totaldiscount, t.deliveryfee, t.totalprice, t.pmid, pm.name
-        FROM sirest.transaction as t
+        SELECT t.totalfood, t.totaldiscount, t.deliveryfee, t.totalprice, pm.name, t.psid
+        FROM sirest.transaction t
         INNER JOIN sirest.payment_method as pm ON t.pmid = pm.id 
         WHERE t.email = '{email}' and t.datetime = '{datetime}';
         '''
     )[0]
+
+    pembayaran = get_query(
+        f'''
+        SELECT name
+        FROM sirest.payment_status
+        WHERE id = '{pengantaran[5]}';
+        '''
+    )[0][0]
+
+    query_status_pesanan = get_query(
+        f'''
+        SELECT ts.name, ts.id
+        FROM sirest.transaction_history th
+        INNER JOIN sirest.transaction_status ts
+        ON th.tsid = ts.id
+        WHERE email = '{email}' and datetime = '{datetime}'
+        ORDER BY th.tsid DESC
+        LIMIT 1;
+        '''
+    )[0]
+
+    print(query_status_pesanan[0])
+    print(query_status_pesanan[1])
+
+    status_pesanan = query_status_pesanan[0]
+    id_status_pesanan = query_status_pesanan[1]
+
+    if id_status_pesanan == 'TS01' or id_status_pesanan == 'TS02':
+        kurir = '-'
+        plat_kendaraan = '-'
+        jenis_kendaraan = '-'
+        merk_kendaraan = '-'
+    else:
+        query_kurir = get_query(
+            f'''
+            SELECT ua.fname as fname, ua.lname as lname, c.platenum as platenum, c.vehicletype as vtype, c.vehiclebrand as branch
+            FROM sirest.user_acc ua
+            INNER JOIN sirest.courier c
+            ON ua.email = c.email
+            INNER JOIN sirest.transaction t
+            ON t.courierid = c.email
+            WHERE t.email = '{email}' and t.datetime = '{datetime}';
+            '''
+        )[0]
+
+        kurir = query_kurir[0] + " " + query_kurir[1]
+        plat_kendaraan = query_kurir[2]
+        jenis_kendaraan = query_kurir[3]
+        merk_kendaraan = query_kurir[4]
 
     # BELOM
     context = {
@@ -178,8 +256,13 @@ def detail_transaksi_pesanan_restoran(request, email, datetime):
         "total_diskon" : pengantaran[1],
         "biaya_pengantaran" : pengantaran[2],
         "total_biaya" : pengantaran[3],
-        "jenis_pembayaran" : pengantaran[4]
-
+        "jenis_pembayaran" : pengantaran[4],
+        "status_pembayaran" : pembayaran,
+        "status_pesanan" : status_pesanan,
+        "kurir" : kurir,
+        "plat_kendaraan" : plat_kendaraan,
+        "jenis_kendaraan" : jenis_kendaraan,
+        "merk_kendaraan" : merk_kendaraan,
     }
 
     return render(request, 'detail_transaksi_pesanan_restoran.html', context)

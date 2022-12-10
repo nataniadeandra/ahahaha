@@ -42,19 +42,23 @@
         <table class="table table-hover rounded rounded-3 overflow-hidden">
             <thead class="table" style="background-color: #2D55D0; color: #fff;">
                 <tr>
+                    <th class="text-center" style="padding: 1rem 1rem;">No</th>
                     <th class="text-center" style="padding: 1rem 1rem;">Nama Bahan Makanan</th>
                     <th class="text-center" style="padding: 1rem 1rem;">Aksi</th>
                 </tr>
-                
             </thead>
             <tbody id ="report_table" >
+                {% for item in item_list %}
                 <tr style="cursor: pointer;">
-                    <td class="text-center">Ikan</td>
-                    <td class="text-center"><button type="button" class="btn btn-secondary">Hapus</button></td>
+                    <td class="text-center">{{item.index}}</td>
+                    <td class="text-center">{{item.name}}</td>
+                    {% if item.is_referenced %}      
+                        <td></td>
+                    {% else %}
+                        <td class="text-center"><a class="btn btn-dark" href="{% url 'trigger_5:delete_bahan_makanan' item.id %}">Hapus</a></td>
+                    {% endif %} 
                 </tr>
-                <tr style="cursor: pointer;">
-                    <td class="text-center">Gula</td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>

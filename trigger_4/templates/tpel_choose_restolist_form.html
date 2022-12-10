@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+
+{% endblock meta %}
+
+{% block content %}
+
+{% include 'navbar_pelanggan.html' %}
+<div class="d-flex flex-row justify-content-center ">
+    <div class="d-flex flex-column align-items-center">
+        
+        <h2 class="lead pt-4 pb-3">PILIHAN RESTORAN</h1>
+        
+        <!-- cards -->
+        <div class="card" style="width: 900px;">
+
+            <div class="px-2 py-3 border-dark d-flex flex-row align-items-center" style="width: 100%;">
+              <div class="d-flex flex-column align-items-center px-2 fs-6 text-wrap fw-normal" 
+              style="width: 5%;">No</div>
+              
+              <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+              style="width: 35%;">Nama Restoran, Cabang</div>
+
+              <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+              style="width: 35%;">Promo Berlangsung</div>
+              
+              <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+              style="width: 20%;">Aksi</div>
+            </div>
+
+            
+            {% for r in restaurant_list %}
+            <div class="px-2 border-dark d-flex flex-column align-items-center" style="width: 100%;">
+              <div class="d-flex flex-row align-items-center" style="width: 100%;">
+                
+                <!-- No -->
+                <div class="d-flex flex-column align-items-end px-2 fs-6 text-wrap fw-normal" 
+                style="width: 5%;">{{ forloop.counter }}</div>
+                <!-- Nama Restoran, Cabang -->
+                <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal gap-1" 
+                style="width: 35%;">
+                  <div id="rname" name="rname" class="text-wrap fw-bold">{{ r.rname }}</div>
+                  <div id="rbranch" name="rbranch" class="text-wrap fw-semibold text-secondary">{{ r.rbranch }}</div>
+                </div>
+                <!-- Promo Berlangsung -->
+                <div class="d-flex flex-column align-items-start px-2 fs-6 text-wrap fw-normal" 
+                style="width: 35%;">
+                  {% for p in promo_list %}
+                    {% if r.rname == p.rname %}
+                    <div class="text-wrap fw-semibold">{{ p.promoname }}</div>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+                <!-- Aksi -->
+                <a href="../../list-menu/{{ r.rname }}/{{ r.rbranch }}/" type="submit" class="btn btn-sm btn-primary" style="width: 20%;">Pilih</a>
+              </div>
+              <div class="pt-3"></div>
+            </div>
+            <div class="d-flex flex-row py-1">
+            </div>
+            {% endfor %}
+            
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}

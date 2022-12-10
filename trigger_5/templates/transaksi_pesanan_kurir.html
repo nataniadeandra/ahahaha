@@ -52,16 +52,17 @@
                 
             </thead>
             <tbody id ="report_table" >
+                {% for item in item_list %}
                 <tr style="cursor: pointer;">
-                    <td class="text-center">1</td>
-                    <td class="text-center">Warung Mantap Depok</td>
-                    <td class="text-center">Mikayla Putri</td>
-                    <td class="text-center">2022-11-04 11:30:05</td>
-                    <td class="text-center">Pesanan Diantar</td>
-                    <td class="text-center"><a class="btn btn-secondary" href="{% url 'trigger_5:show_transaksi_pesanan_kurir_detail' %}">Detail</a>
-                        <button type="button" class="btn btn-secondary">Selesai</button></td>
+                    <td class="text-center">{{item.index}}</td>
+                    <td class="text-center">{{item.restoran}} {{item.cabang}}</td>
+                    <td class="text-center">{{item.nama_pelanggan}}</td>
+                    <td class="text-center">{{item.waktu_pesanan}}</td>
+                    <td class="text-center">{{item.status_pesanan}}</td>
+                    <td class="text-center"><a class="btn btn-secondary" href="{% url 'trigger_5:show_transaksi_pesanan_kurir_detail' item.restoran item.cabang item.nama_pelanggan item.waktu_pesanan item.status_pesanan%}">Detail</a>
+                    <a class="btn btn-secondary" href="{% url 'trigger_5:update_transaksi_pesanan_kurir' item.nama_pelanggan item.waktu_pesanan%}">Selesai</a> </td>
                 </tr>
-                
+                {% endfor %}
             </tbody>
         </table>
     </div>
