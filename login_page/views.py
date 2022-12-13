@@ -72,6 +72,8 @@ def login(request):
         return redirect("../../dashboard/restoran/")
     elif role == "courier":
         return redirect("../../dashboard/kurir/")
+    else:
+        return render(render, "login.html", messages)
 
 def logout(request):
     if not is_authenticated(request):

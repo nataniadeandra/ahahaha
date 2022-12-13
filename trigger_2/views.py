@@ -44,7 +44,7 @@ def isi_resto_pay(request):
         '''
     )
 
-    return render(request, 'isi_resto_pay.html', {"query" : query, "role" : role})
+    return redirect('../read/')
 
 def tarik_resto_pay(request):
     
@@ -73,7 +73,7 @@ def tarik_resto_pay(request):
     )
 
     if str(result).strip() == "'NoneType' object is not iterable":
-        return render(request, 'tarik_resto_pay.html', {"query" : query, "role" : role})
+        return redirect('../read/')
     else:
         return render(request, 'tarik_resto_pay.html', {"query" : query, "message" : str(result).split("CONTEXT")[0], "role" : role})
 
