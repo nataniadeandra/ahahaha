@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'trigger_4',
     'trigger_6',
     'dashboard',
+    'trigger_3',
 ]
 
 MIDDLEWARE = [
@@ -88,6 +89,7 @@ DATABASES = {
         'PASSWORD': '2Pd3U4EMYczvOcVCfd28',
         'HOST': 'containers-us-west-141.railway.app', 
         'PORT': '6749',
+        'DATABASE': 'db22a011'
     }
 }
 

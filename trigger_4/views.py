@@ -95,7 +95,7 @@ def pilih_restolist_pesanan(request, province):
 def pilih_restomenu_pesanan(request, rname, rbranch):
     data = get_session_data(request)
     email = str(request.session["email"]).strip()
-    current_date = str(date.now())
+    current_date = str(date.now())[:23]
     
     menu_list = get_query(f"""
         SELECT foodname, price
@@ -118,16 +118,16 @@ def pilih_restomenu_pesanan(request, rname, rbranch):
     payment = request.POST['payment']
 
     for i in range(menu_count):
+
         menu_qty = int(request.POST['jumlah-' + str(i+1)])
         if menu_qty > 0:
             menu_name = menu_list[i][0] 
             menu_note = request.POST['catatan-' + str(i+1)]
-            print(current_date)
-            get_query(f"""
-                INSERT INTO transaction_food VALUES (
-                    {email}, '{current_date}', '{rname}', '{rbranch}', '{menu_name}', {menu_qty}, '{menu_note}'
-                );
-            """)
+            get_query(
+            f"""
+            INSERT INTO transaction_food VALUES ('{email}', '{current_date}', '{rname}', '{rbranch}', '{menu_name}', {menu_qty}, '{menu_note}');
+            """
+            )
         else:
             continue
 
@@ -169,8 +169,8 @@ def list_pesanan(request):
         WHERE province = '{province}';
     """)
     
-    data[motor_fee] = motor_fee
-    data[car_fee] = car_fee
+    data['motor_fee'] = motor_fee
+    data['car_fee'] = car_fee
 
     if vehicle == "Motor":
         vehicle_fee = motor_fee
@@ -182,7 +182,7 @@ def list_pesanan(request):
     data['order'] = get_query(f"""
         SELECT tf.foodname, f.price, tf.amount, tf.amount*f.price AS subtotal
         FROM transaction_food tf
-        INNER JOIN food f ON tf.foodname = f.foodname AND tf.rname = f.rname AND tf.rbranch = f.rbranch
+        INNER JOIN food f ON tf.foodname = f.foodname AND tf.rname = f.rname AND tf.rbranch = f.rbranch;
     """)
 
     return render(request, 'tpel_pesanan_list.html', data)
