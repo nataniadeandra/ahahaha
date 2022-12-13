@@ -2,6 +2,9 @@
 
 {% block meta %}
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
 <style>
 
     div {
@@ -20,57 +23,57 @@
 
 <div class="row">
     <div class="col">
-        <h2 class="lead pt-4 pb-3">Ringkasan Pesanan</h1>
+        <h2 class="pt-4 pb-3">Ringkasan Pesanan</h1>
 
         <div class="card mb-4 shadow">
         <div class="card-body border-dark" style="width: 500px;">
 
-        <div class="pb-3 pt-2 d-flex justify-content-center">
-            <h3 class="lead pt-2">Waktu Pemesanan: {{datetime}}</h3>
+        <div class="pb-3 pt-1 d-flex justify-content-center">
+            <p class="pt-1">Waktu Pemesanan: {{datetime}}</p>
         </div>
 
-        <div class="pb-3 pt-2 d-flex justify-content-center">
-            <h3 class="lead pt-2">Nama Pelanggan: {{nama_pelanggan}}</h3>
-            <h3 class="lead pt-2">Jalan: {{jalan_pelanggan}}</h3>
-            <h3 class="lead pt-2">Kecamatan: {{kecamatan_pelanggan}}</h3>
-            <h3 class="lead pt-2">Kota: {{kota_pelanggan}}</h3>
-            <h3 class="lead pt-2">Provinsi: {{provinsi_pelanggan}}</h3>
+        <div class="pb-3 pt-1 d-flex justify-content-center">
+            <p class="pt-1">Nama Pelanggan: {{nama_pelanggan}}</p>
+            <p class="pt-1">Jalan: {{jalan_pelanggan}}</p>
+            <p class="pt-1">Kecamatan: {{kecamatan_pelanggan}}</p>
+            <p class="pt-1">Kota: {{kota_pelanggan}}</p>
+            <p class="pt-1">Provinsi: {{provinsi_pelanggan}}</p>
         </div>
 
-        <div class="pb-3 pt-2 d-flex justify-content-center">
-            <h3 class="lead pt-2">Restoran: {{nama_restoran}}</h3>
-            <h3 class="lead pt-2">Jalan: {{jalan_restoran}}</h3>
-            <h3 class="lead pt-2">Kecamatan: {{kecamatan_restoran}}</h3>
-            <h3 class="lead pt-2">Kota: {{kota_restoran}}</h3>
-            <h3 class="lead pt-2">Provinsi: {{provinsi_restoran}}</h3>
+        <div class="pb-3 pt-1 d-flex justify-content-center">
+            <p class="pt-1">Restoran: {{nama_restoran}}</p>
+            <p class="pt-1">Jalan: {{jalan_restoran}}</p>
+            <p class="pt-1">Kecamatan: {{kecamatan_restoran}}</p>
+            <p class="pt-1">Kota: {{kota_restoran}}</p>
+            <p class="pt-1">Provinsi: {{provinsi_restoran}}</p>
         </div>
 
-        <div class="pb-3 pt-2 d-flex justify-content-center">
-            <h3 class="lead pt-2">Makanan yang dipesan</h3>
+        <div class="pb-3 pt-1 d-flex justify-content-center">
+            <p class="pt-1">Makanan yang dipesan</p>
             {% for m in makanan %}
                 {% if m.note == None %}
-                    <h3 class="lead pt-2"> • {{m.foodname}} ({{m.amount}})</h3>
+                    <p class="pt-1"> • {{m.foodname}} ({{m.amount}})</p>
                 {% else %}
-                    <h3 class="lead pt-2"> • {{m.foodname}} ({{m.amount}}) - {{m.note}}</h3>
+                    <p class="pt-1"> • {{m.foodname}} ({{m.amount}}) - {{m.note}}</p>
                 {% endif %}
             {% endfor %}
-            <h3 class="lead pt-2">Total Harga Makanan: {{total_harga_makanan}}</h3>
-            <h3 class="lead pt-2">Total Diskon: {{total_diskon}}</h3>
-            <h3 class="lead pt-2">Biaya Pengantaran: {{biaya_pengantaran}}</h3>
-            <h3 class="lead pt-2">Total Biaya: {{total_biaya}}</h3>
-            <h3 class="lead pt-2">Jenis Pembayaran: {{jenis_pembayaran}}</h3>
+            <p class="pt-1">Total Harga Makanan: {{total_harga_makanan}}</p>
+            <p class="pt-1">Total Diskon: {{total_diskon}}</p>
+            <p class="pt-1">Biaya Pengantaran: {{biaya_pengantaran}}</p>
+            <p class="pt-1">Total Biaya: {{total_biaya}}</p>
+            <p class="pt-1">Jenis Pembayaran: {{jenis_pembayaran}}</p>
         </div>
 
-        <div class="pb-3 pt-2 d-flex justify-content-center">
-            <h3 class="lead pt-2">Status Pembayaran: {{status_pembayaran}}</h3>
-            <h3 class="lead pt-2">Status Pesanan: {{status_pesanan}}</h3>
+        <div class="pb-3 pt-1 d-flex justify-content-center">
+            <p class="pt-1">Status Pembayaran: {{status_pembayaran}}</p>
+            <p class="pt-1">Status Pesanan: {{status_pesanan}}</p>
         </div>
 
-        <div class="pb-3 pt-2 d-flex justify-content-center">
-            <h3 class="lead pt-2">Kurir: {{kurir}}</h3>
-            <h3 class="lead pt-2">Plat Kendaraan: {{plat_kendaraan}}</h3>
-            <h3 class="lead pt-2">Jenis Kendaraan: {{jenis_kendaraan}}</h3>
-            <h3 class="lead pt-2">Merk Kendaraan: {{merk_kendaraan}}</h3>
+        <div class="pb-3 pt-1 d-flex justify-content-center">
+            <p class="pt-1">Kurir: {{kurir}}</p>
+            <p class="pt-1">Plat Kendaraan: {{plat_kendaraan}}</p>
+            <p class="pt-1">Jenis Kendaraan: {{jenis_kendaraan}}</p>
+            <p class="pt-1">Merk Kendaraan: {{merk_kendaraan}}</p>
         </div>
 
         <div class="border border-dark rounded px-3 py-1 mt-4 my-2"><a href="../../../read/" class="text-decoration-none text-dark">Kembali</a></div>

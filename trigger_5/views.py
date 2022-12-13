@@ -92,6 +92,8 @@ def create_bahan_makanan(request):
             INSERT INTO INGREDIENT
             VALUES ('{id}', '{name}')
             """)
+            response = HttpResponseRedirect(reverse("trigger_5:show_bahan_makanan"))
+            return response
     context = {
         'form' : form_gen
     }
@@ -154,6 +156,14 @@ def delete_bahan_makanan(request, id):
     return response
 
 def create_kategori_restoran(request):
+    role = get_role(request.session['email'], request.session['password'])
+    if role == "courier":
+        return redirect("../../dashboard/kurir/")
+    elif role == "customer":
+        return redirect("../../dashboard/pelanggan/")
+    elif role == "restaurant":
+        return redirect("../../dashboard/restoran/")
+
     if request.method == 'POST':
         form = kategoriRestoranForm(request.POST)
         if form.is_valid():
@@ -167,6 +177,8 @@ def create_kategori_restoran(request):
             INSERT INTO RESTAURANT_CATEGORY
             VALUES ('{id}', '{name}')
             """)
+            response = HttpResponseRedirect(reverse("trigger_5:show_kategori_restoran"))
+            return response
     form_gen = kategoriRestoranForm()
     context = {
         'form' : form_gen
@@ -325,9 +337,11 @@ def show_transaksi_pesanan_kurir_detail(request, restoran, cabang, nama_pelangga
     return render(request, 'transaksi_pesanan_kurir_detail.html', data)
 
 def update_transaksi_pesanan_kurir(request, nama_pelanggan, waktu_pesanan):
+    
     fname, lname = nama_pelanggan.split()
     waktu_pesanan_min = datetime.strptime(waktu_pesanan, '%m-%d-%Y %H:%M:%S')
     waktu_pesanan_max = waktu_pesanan_min + timedelta(seconds=1)
+    print(fname, lname, waktu_pesanan_min, waktu_pesanan_max)
     email = query(f"""
     SELECT email
     FROM USER_ACC
@@ -337,7 +351,7 @@ def update_transaksi_pesanan_kurir(request, nama_pelanggan, waktu_pesanan):
     query(f"""
     UPDATE TRANSACTION_HISTORY
     SET TSId = 'TS04'
-    WHERE Email = '{email}' AND  (Datetime <= '{waktu_pesanan_max}' and Datetime >= '{waktu_pesanan_min}')
+    WHERE Email = '{email}' AND  (Datetime <= '{waktu_pesanan_max}' and Datetime >= '{waktu_pesanan_min}') AND TSId = 'TS03'
     """)
     
     response = HttpResponseRedirect(reverse("trigger_5:show_transaksi_pesanan_kurir"))

@@ -22,7 +22,7 @@
                 <div class="d-flex flex-column justify-content-between p-3 gap-3" style="width: 100%;">
   
                     <div class="d-flex flex-row justify-content-between align-items-center">
-                        <h3 class="fs-6 text-wrap fw-normal pt-2" style="width: 30%;" >Username</h3>
+                        <h3 class="fs-6 text-wrap fw-normal pt-2" style="width: 30%;" >Email</h3>
                         <input type="email" name="email" id="email" required class="form-control"style="width: 70%;">
                     </div>                      
                     <br>
@@ -33,9 +33,15 @@
                     
                 </div>
 
-                <div class="d-flex flex-column justify-content-between px-3 pt-5 pb-3 gap-3" style="width: 100%;">
+                <div class="d-flex flex-column justify-content-between px-3 pb-3 gap-3" style="width: 100%;">
                     <button class="btn">Login</button>
                 </div>
+
+                {% for m in messages %}
+            <div class="d-flex flex-column justify-content-between pb-0 mt-0 mb-2" style="width: 100%;">
+                <p class="text-danger">{{ m }}</p>
+            </div>
+            {% endfor %} 
 
             </form>
                 
@@ -52,7 +58,7 @@
                     
                     <div class="p-2 border-dark d-flex flex-column justify-content-center align-items-end">
                         <div class="d-flex flex-column justify-content-center px-2 align-items-end" style="width: 200px;">
-                            <a onClick="javascript:history.go(-1);" type="button" class="btn btn-outline-info btn-sm">Register</a>
+                            <a class="btn btn-secondary" href="{% url 'login_page:register' %}">Register</a></td>
                         </div>                        
                     </div>                           
                 </div>

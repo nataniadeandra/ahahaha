@@ -40,8 +40,6 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-    <div style="min-height: 92vh;"></div>
-
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column bg-white overflow-hidden">
 
@@ -139,26 +137,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>DKI Jakarta</td>
-                                    <td>5000</td>
-                                    <td>10000</td>
-                                    <td>
-                                      <a href="tarif_pengiriman_update.html" class="btn btn-info btn-sm">Ubah</a>
-                                      <a href="#" class="btn btn-danger btn-sm">Hapus</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                  <td>1</td>
-                                  <td>Jawa Barat</td>
-                                  <td>7000</td>
-                                  <td>12000</td>
-                                  <td>
-                                    <a href="tarif_pengiriman_update.html" class="btn btn-info btn-sm">Ubah</a>
-                                    <a href="#" class="btn btn-danger btn-sm">Hapus</a>
-                                  </td>
+                              {% for i in hasil %}
+                              <tr>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{ i.province }}</td>
+                                <td>{{ i.MotorFee }}</td>
+                                <td>{{ i.MobilFee }}</td>
+                                <td>
+                                  <a href="tarif_pengiriman_update.html" class="btn btn-info btn-sm">Ubah</a>
+                                  <a href="{% url 'trigger_3:delete_tarif_pengiriman' id=i.id %}" class="btn btn-danger btn-sm">Hapus</a>
+                                </td>
                               </tr>
+                              {% endfor %}
                             </tbody>
                         </table>
                     </div>

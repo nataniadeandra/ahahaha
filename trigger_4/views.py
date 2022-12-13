@@ -184,6 +184,7 @@ def pilih_restomenu_pesanan(request, rname, rbranch):
     print(check_txi_post)
 
     for i in range(menu_count):
+
         menu_qty = int(request.POST['jumlah-' + str(i+1)])
         if menu_qty > 0:
             menu_name = menu_list[i][0] 

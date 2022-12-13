@@ -5,7 +5,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light px-5">
-        <a class="navbar-brand" href="#">Dashboard</a>
+        <a class="navbar-brand" href="{% url 'dashboard:dashboard_resto' %}">Dashboard</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -17,8 +17,8 @@
                   Jam Operasional
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Daftar Jam Operasional</a>
-                  <a class="dropdown-item" href="#">Buat Jam Operasional</a>
+                  <a class="dropdown-item" href="{% url 'trigger_2:read_jam_operasional' %}">Daftar Jam Operasional</a>
+                  <a class="dropdown-item" href="{% url 'trigger_2:create_jam_operasional' %}">Buat Jam Operasional</a>
                 </div>
               </li>
             <li class="nav-item dropdown">
@@ -35,7 +35,7 @@
                 Pesanan
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Pesanan Berlangsung</a>
+                <a class="dropdown-item" href="{% url 'trigger_2:read_transaksi_pesanan_restoran' %}">Pesanan Berlangsung</a>
                 <a class="dropdown-item" href="#">Riwayat Pesanan</a>
               </div>
             </li>
@@ -49,7 +49,7 @@
                 </div>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="#"><span class="sr-only">RestoPay</span></a>
+                <a class="nav-link" href="{% url 'trigger_2:read_resto_pay' %}"><span class="sr-only">RestoPay</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{% url 'login_page:logout' %}"><span class="sr-only">Logout</span></a>

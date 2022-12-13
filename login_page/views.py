@@ -72,6 +72,8 @@ def login(request):
         return redirect("../../dashboard/restoran/")
     elif role == "courier":
         return redirect("../../dashboard/kurir/")
+    else:
+        return render(render, "login.html", messages)
 
 def logout(request):
     if not is_authenticated(request):
@@ -113,13 +115,16 @@ def register_admin(request):
         SELECT * FROM USER_ACC
         WHERE email = '{email}'
         """)
-        if email_cek != None:
+        if len(email_cek) != 0:
+            print('xd')
+            print(email_cek)
             messages['error'] = True
             return render(request, 'register_admin.html', messages)
-
+        
+        print("tes")
         query(f"""
         INSERT INTO sirest.USER_ACC
-        VALUES ('{email}', '{password}', '{fname}', '{lname}', '{no_hp}')
+        VALUES ('{email}', '{password}', '{no_hp}', '{fname}', '{lname}')
         """)
         query(f"""
         INSERT INTO sirest.ADMIN
@@ -127,16 +132,12 @@ def register_admin(request):
         """)
 
         role = get_role(email, password)
-        if role == "":
-            if not is_authenticated(request):
-                messages.error(request, 'Email atau password salah')
-                return render(request, 'login.html', {'title': "Login"})
-            else:
-                request.session["email"] = email
-                request.session["password"] = password
-                request.session["role"] = role
-                request.session.set_expiry(0)
-                request.session.modified = True
+        request.session["email"] = email
+        request.session["password"] = password
+        request.session["role"] = role
+        request.session.set_expiry(0)
+        request.session.modified = True
+                
         return redirect("../../dashboard/admin/")
     
     return render(request, 'register_admin.html', messages)
@@ -168,42 +169,42 @@ def register_cust(request):
             return render(request, 'register_cust.html', messages)
 
         email_cek = None
+        print(email)
         email_cek = query(f"""
         SELECT * FROM USER_ACC
         WHERE email = '{email}'
         """)
-        if email_cek != None:
+        if len(email_cek) != 0:
+            print('xd')
+            print(email_cek)
             messages['error'] = True
-            print('multiple')
             return render(request, 'register_cust.html', messages)
         
-        query(f"""
-        INSERT INTO sirest.USER_ACC
-        VALUES ('{email}', '{password}', '{fname}', '{lname}', '{no_hp}')
+        ua = query(f"""
+        INSERT INTO USER_ACC
+        VALUES ('{email}', '{password}', '{no_hp}', '{fname}', '{lname}')
         """)
+        print(ua)
 
-        query(f"""
+        ta = query(f"""
         INSERT INTO TRANSACTION_ACTOR
-        VALUES ('{email}', '{nik}', '{nama_bank}', '{no_rek}', 0)
+        VALUES ('{email}', '{nik}', '{nama_bank}', '{no_rek}', 0, NULL)
         """)
+        print(ta)
 
-        query(f"""
+        customer = query(f"""
         INSERT INTO CUSTOMER
         VALUES ('{email}', '{tanggal_lahir}', '{jenis_kelamin}')
         """)
-
+        print(customer)
         role = get_role(email, password)
-        if role == "":
-            if not is_authenticated(request):
-                messages.error(request, 'Email atau password salah')
-                return render(request, 'login.html', {'title': "Login"})
-            else:
-                request.session["email"] = email
-                request.session["password"] = password
-                request.session["role"] = role
-                request.session.set_expiry(0)
-                request.session.modified = True
-        return redirect("../../dashboard/cust/")
+        request.session["email"] = email
+        request.session["password"] = password
+        request.session["role"] = role
+        request.session.set_expiry(0)
+        request.session.modified = True
+
+        return redirect("../../dashboard/pelanggan/")
     return render(request, 'register_cust.html', messages)
 # Create Resto
 def register_rest(request):
@@ -255,37 +256,40 @@ def register_rest(request):
         SELECT * FROM USER_ACC
         WHERE email = '{email}'
         """)
-        if email_cek != None:
+        if len(email_cek) != 0:
+            print('xd')
+            print(email_cek)
             messages['error'] = True
             return render(request, 'register_rest.html', messages)
 
-        query(f"""
+        uc = query(f"""
         INSERT INTO sirest.USER_ACC
-        VALUES ('{email}', '{password}', '{fname}', '{lname}', '{no_hp}')
+        VALUES ('{email}', '{password}', '{no_hp}', '{fname}', '{lname}')
         """)
 
-        query(f"""
+        print(uc)
+
+        ta = query(f"""
         INSERT INTO TRANSACTION_ACTOR
-        VALUES ('{email}', '{nik}', '{nama_bank}', '{no_rek}', 0)
+        VALUES ('{email}', '{nik}', '{nama_bank}', '{no_rek}', 0, NULL)
         """)
 
-        query(f"""
+        print(ta)
+
+        r = query(f"""
         INSERT INTO RESTAURANT
-        VALUES ('{email}', '{nama_restoran}', '{cabang}', '{no_telp}', '{jalan}', '{kecamatan}', '{kota}', '{provinsi}', '{kategori_restoran}')
+        VALUES ('{nama_restoran}', '{cabang}', '{email}', '{no_telp}', '{jalan}', '{kecamatan}', '{kota}', '{provinsi}', 0 ,'{kategori_restoran}')
         """)
+        print(r)
 
         role = get_role(email, password)
-        if role == "":
-            if not is_authenticated(request):
-                messages.error(request, 'Email atau password salah')
-                return render(request, 'login.html', {'title': "Login"})
-            else:
-                request.session["email"] = email
-                request.session["password"] = password
-                request.session["role"] = role
-                request.session.set_expiry(0)
-                request.session.modified = True
-        return redirect("../../dashboard/rest/")
+        request.session["email"] = email
+        request.session["password"] = password
+        request.session["role"] = role
+        request.session.set_expiry(0)
+        request.session.modified = True
+                
+        return redirect("../../dashboard/restoran/")
     return render(request, 'register_rest.html', messages)
 # Create Cour
 def register_cour(request):
@@ -321,18 +325,21 @@ def register_cour(request):
         SELECT * FROM USER_ACC
         WHERE email = '{email}'
         """)
-        if email_cek != None:
+        
+        if len(email_cek) != 0:
+            print('xd')
+            print(email_cek)
             messages['error'] = True
             return render(request, 'register_cour.html', messages)
 
         query(f"""
         INSERT INTO sirest.USER_ACC
-        VALUES ('{email}', '{password}', '{fname}', '{lname}', '{no_hp}')
+        VALUES ('{email}', '{password}', '{no_hp}', '{fname}', '{lname}' )
         """)
 
         query(f"""
         INSERT INTO TRANSACTION_ACTOR
-        VALUES ('{email}', '{nik}', '{nama_bank}', '{no_rek}', 0)
+        VALUES ('{email}', '{nik}', '{nama_bank}', '{no_rek}', 0, NULL)
         """)
 
         query(f"""
@@ -341,17 +348,12 @@ def register_cour(request):
         """)
 
         role = get_role(email, password)
-        if role == "":
-            if not is_authenticated(request):
-                messages.error(request, 'Email atau password salah')
-                return render(request, 'login.html', {'title': "Login"})
-            else:
-                request.session["email"] = email
-                request.session["password"] = password
-                request.session["role"] = role
-                request.session.set_expiry(0)
-                request.session.modified = True
-        return redirect("../../dashboard/cour/")
+        request.session["email"] = email
+        request.session["password"] = password
+        request.session["role"] = role
+        request.session.set_expiry(0)
+        request.session.modified = True                
+        return redirect("../../dashboard/kurir/")
         
 
     return render(request, 'register_cour.html', messages)
