@@ -40,8 +40,6 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-    <div style="min-height: 92vh;"></div>
-
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column bg-white overflow-hidden">
 
@@ -152,32 +150,21 @@
                                 </tr>
                             </thead>
                             <tbody>
+                              {% for i in hasil %}
                                 <tr>
-                                    <td>1</td>
-                                    <td>Roti Bakar Coklat Keju</td>
-                                    <td>Roti dengan isian coklat dan keju yang dibakar</td>
-                                    <td>10</td>
-                                    <td>8000</td>
-                                    <td>Snack</td>
-                                    <td>Roti,Mentega,Coklat,Keju</td>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ i.foodname }}</td>
+                                    <td>{{ i.description }}</td>
+                                    <td>{{ i.stock }}</td>
+                                    <td>{{ i.price }}</td>
+                                    <td>{{ i.name }}</td>
+                                    <td>{{ i.description }}</td>
                                     <td>
                                       <a href="makanan_update.html" class="btn btn-info btn-sm">Ubah</a>
                                       <a href="#" class="btn btn-danger btn-sm">Hapus</a>
                                     </td>
                                 </tr>
-                                <tr>
-                                  <td>2</td>
-                                  <td>Milkshake Vanilla</td>
-                                  <td>Milkshake rasa vanilla dengan topping es krim</td>
-                                  <td>5</td>
-                                  <td>7000</td>
-                                  <td>Minuman</td>
-                                  <td>Susu, Es Krim, Gula</td>
-                                  <td>
-                                    <a href="makanan_update.html" class="btn btn-info btn-sm">Ubah</a>
-                                    <a href="#" class="btn btn-danger btn-sm">Hapus</a>
-                                  </td>
-                              </tr>
+                                {% endfor %}
                             </tbody>
                         </table>
                     </div>
