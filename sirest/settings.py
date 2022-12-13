@@ -137,7 +137,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_TRUSTED_ORIGINS = [
     "https://sirest-django-app-production.up.railway.app",
     "https://sirest-django-app-production-fc5d.up.railway.app",
-    r"https://containers-us-west-141.railway.app",
+    r"https://.sirest-website.up.railway.app",
     "http://localhost:8000",
     "http://127.0.0.1:8000",
     ]
