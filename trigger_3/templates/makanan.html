@@ -1,7 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+{% extends 'base.html' %}
+{% block meta %}
   <!-- Progress bar loading -->
   <script src="../assets/frontend/vendor/pace/pace.min.js"></script>
   <link rel="stylesheet" href="../assets/frontend/vendor/pace/pace.css">
@@ -12,49 +10,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Nyat Server Control">
   <meta name="author" content="">
-
-  <title>
-    SIREST
-  </title>
-
-  <link rel="icon" href="../assets/frontend/img/favicon/favicon.png">
-
   <!-- Custom fonts -->
   <link href="../assets/frontend/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
   <!-- Bootstrap styles -->
   <link href="../assets/frontend/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
   <!-- NOTE: ALL SCRIPT MOVE HERE FROM BOTTOM -->
 
   <!-- Bootstrap core JavaScript-->
   <script src="../assets/frontend/vendor/jquery/jquery.min.js"></script>
   <script src="../assets/frontend/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
   <!-- Core plugin JavaScript-->
   <script src="../assets/frontend/vendor/jquery-easing/jquery.easing.min.js"></script>
-
   <!-- Custom styles for ALL page-->
   <link href="../assets/frontend/css/index.css" rel="stylesheet">
-
   <!-- Custom styles for data tables page -->
   <link href="../assets/frontend/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
   <link href="../assets/frontend/vendor/datatables/responsive.bootstrap4.min.css" rel="stylesheet">
-
   <!-- Page data tables level plugins -->
   <script src="../assets/frontend/vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="../assets/frontend/vendor/datatables/dataTables.bootstrap4.min.js"></script>
   <script src="../assets/frontend/vendor/datatables/dataTables.responsive.min.js"></script>
   <script src="../assets/frontend/vendor/datatables/responsive.bootstrap4.min.js"></script>
-</head>
+{% endblock meta %}
 
+{% block content %}
 <body id="page-top">
 
   <!-- Page Wrapper -->
   <div id="wrapper">
-
-    <div style="min-height: 92vh;"></div>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column bg-white overflow-hidden">
@@ -62,7 +46,7 @@
       <!-- Main Content -->
       <div id="content">
 
-    <!-- Topbar -->
+    <!-- Topbar
     <nav class="navbar navbar-expand-lg navbar-light bg-white topbar h-auto container shadow-sm fixed-top">
 		  <div class="">
 		    <a class="navbar-brand d-flex mr-auto text-primary" href="../index.html">
@@ -133,6 +117,8 @@
 
     <!-- End of Topbar -->
 
+    {% include 'navbar_admin.html' %}
+
     <div id="main_content">
       <section id="secHeader" class="row h-75 my-3 my-md-0">
         <div class="container">
@@ -164,32 +150,21 @@
                                 </tr>
                             </thead>
                             <tbody>
+                              {% for i in hasil %}
                                 <tr>
-                                    <td>1</td>
-                                    <td>Roti Bakar Coklat Keju</td>
-                                    <td>Roti dengan isian coklat dan keju yang dibakar</td>
-                                    <td>10</td>
-                                    <td>8000</td>
-                                    <td>Snack</td>
-                                    <td>Roti,Mentega,Coklat,Keju</td>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ i.foodname }}</td>
+                                    <td>{{ i.description }}</td>
+                                    <td>{{ i.stock }}</td>
+                                    <td>{{ i.price }}</td>
+                                    <td>{{ i.name }}</td>
+                                    <td>{{ i.description }}</td>
                                     <td>
                                       <a href="makanan_update.html" class="btn btn-info btn-sm">Ubah</a>
                                       <a href="#" class="btn btn-danger btn-sm">Hapus</a>
                                     </td>
                                 </tr>
-                                <tr>
-                                  <td>2</td>
-                                  <td>Milkshake Vanilla</td>
-                                  <td>Milkshake rasa vanilla dengan topping es krim</td>
-                                  <td>5</td>
-                                  <td>7000</td>
-                                  <td>Minuman</td>
-                                  <td>Susu, Es Krim, Gula</td>
-                                  <td>
-                                    <a href="makanan_update.html" class="btn btn-info btn-sm">Ubah</a>
-                                    <a href="#" class="btn btn-danger btn-sm">Hapus</a>
-                                  </td>
-                              </tr>
+                                {% endfor %}
                             </tbody>
                         </table>
                     </div>
@@ -231,5 +206,4 @@
   <script src="../assets/frontend/js/index.js"></script>
 
 </body>
-
-</html>
+{% endblock content %}
