@@ -263,8 +263,7 @@ def konfirmasi_pembayaran(request):
     """)
 
     print(transaction)
-
-    transaction_status 
+    
     transaction_status = query(f"""
         INSERT INTO transaction_history VALUES (
             '{email}', '{current_date}', '{'TS01'}', '{status_date}'
