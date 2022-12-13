@@ -84,7 +84,7 @@ DATABASES = {
     # KL BUAT LOCAL
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'db22a011', 
+        'NAME': 'db22a011',
         'USER': 'postgres',
         'PASSWORD': '2Pd3U4EMYczvOcVCfd28',
         'HOST': 'containers-us-west-141.railway.app', 
