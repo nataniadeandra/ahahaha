@@ -25,11 +25,7 @@ SECRET_KEY = 'django-insecure-_+6=32=z94-5el2f7h8ke8cd=52=hh9tqq=&5g#%vtc42la$k)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    "https://sirest-web.up.railway.app",
-    "http://localhost:8000",
-    "http://127.0.0.1:8000",
-]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -138,8 +134,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = [
-    "https://sirest-web.up.railway.app",
-    "http://localhost:8000",
-    "http://127.0.0.1:8000",
-    ]
+CSRF_TRUSTED_ORIGINS = ["*"]
