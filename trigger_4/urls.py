@@ -15,4 +15,6 @@ urlpatterns = [
     path('list-menu/<str:rname>/<str:rbranch>/', views.pilih_restomenu_pesanan, name='list-menu'),
     path('list-pesanan/', views.list_pesanan, name='list-pesanan'),
     path('konfirmasi-pembayaran/', views.konfirmasi_pembayaran, name='konfirmasi-pembayaran'),
+    path('detail-pesanan/<str:current_date>/', views.detail_pesanan, name='detail-pesanan'),
+    path('daftar-pesanan/', views.daftar_pesanan, name='daftar-pesanan'),
 ]

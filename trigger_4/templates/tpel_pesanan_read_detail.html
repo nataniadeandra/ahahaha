@@ -10,7 +10,7 @@
 <div class="d-flex flex-row justify-content-center">
     <div class="d-flex flex-column justify-content-center">
         
-        <h2 class="lead text-bold pt-4 pb-3">DETAIL TRANSAKSI</h2>
+        <h2 class="lead text-bold pt-4 pb-3">RIWAYAT TRANSAKSI</h2>
             
         <h2 class="fs-4 fw-semibold pt-4 pb-3">Detail Pemesanan</h2>
         <div class="d-flex flex-row justify-content-start">
@@ -225,10 +225,6 @@
                         <div class="d-flex flex-column justify-content-center px-2" style="width: 200px;">
                             <h3 class="fs-6 text-wrap fw-normal">Status Pesanan</h3>
                         </div>
-
-                        <div class="d-flex flex-column justify-content-center px-2" style="width: 200px;">
-                            <h3 class="fs-6 text-wrap fw-normal">Waktu untuk Konfirmasi</h3>
-                        </div>
                     </div>
 
                     
@@ -242,17 +238,69 @@
                         </div> 
                         
                         <div class="d-flex flex-column justify-content-center px-2" style="width: 200px;">
-                          <h3 class="fs-6 text-wrap fw-normal">Menunggu Pembayaran</h3>
+                          <h3 class="fs-6 text-wrap fw-normal">{{ status_pembayaran }}</h3>
                         </div>
 
                         <div class="d-flex flex-column justify-content-center px-2" style="width: 200px;">
-                            <h3 class="fs-6 text-wrap fw-normal">Menunggu Konfirmasi Restoran</h3>
-                        </div>
-
-                        <div class="d-flex flex-column justify-content-center px-2" style="width: 200px;">
-                            <h3 class="fs-6 text-wrap fw-normal">49 (detik)</h3>
+                            <h3 class="fs-6 text-wrap fw-normal">{{ status_pesanan }}</h3>
                         </div>
                     </div>                           
+                </div>
+            </div>
+        </div>
+
+        <h2 class="fs-4 fw-semibold pt-4 pb-3">Detail Pengantaran</h2>
+        <div class="d-flex flex-row justify-content-between" style="width: 880px;">
+
+            <!-- cards dikirim ke -->
+            <div class="card d-flex flex-column">
+                <div class="d-flex flex-row justify-content-start align-items-start p-2">
+                    <div class="px-2 py-3 align-items-center">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.17 11C4.12 11 4.06 11 4 11H4.17ZM13.41 5H9V7H12.59L14.59 9H11L7 11L5 9H0V11H4C1.79 11 0 12.79 0 15C0 17.21 1.79 19 4 19C6.21 19 8 17.21 8 15L10 17H13L16.49 10.9L17.5 11.91C16.59 12.64 16 13.75 16 15C16 17.21 17.79 19 20 19C22.21 19 24 17.21 24 15C24 12.79 22.21 11 20 11C19.82 11 19.64 11.03 19.47 11.05L17.41 9H20V6L16.28 7.86L13.41 5ZM20 17C18.9 17 18 16.1 18 15C18 13.9 18.9 13 20 13C21.1 13 22 13.9 22 15C22 16.1 21.1 17 20 17ZM4 17C2.9 17 2 16.1 2 15C2 13.9 2.9 13 4 13C5.1 13 6 13.9 6 15C6 16.1 5.1 17 4 17Z" fill="#ffc107"/>
+                        </svg>
+                    </div>
+                    <h3 class="py-3 align-items-center fs-5 text-wrap fw-bold">Detail Kurir</h3>
+                </div>
+                
+                <div class="d-flex flex-row">
+                
+                    <div class="p-2 border-dark d-flex flex-column justify-content-start">
+                        <div class="d-flex flex-column justify-content-start px-2" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-normal">Nama Kurir</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-start px-2" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-normal">Plat Kendaraan</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-start px-2" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-normal">Jenis Kendaraan</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-start px-2" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-normal">Merk Kendaraan</h3>
+                        </div>
+                    </div>
+
+                    
+                    <div class="p-2 border-dark d-flex flex-column justify-content-center align-items-end">
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-end" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-bold">{{ nama_kurir }}</h3>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-end" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-semibold">{{ plat_nomor }}</h3>
+                        </div>
+                        
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-end" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-semibold">{{ jenis_kendaraan }}</h3>
+                        </div>
+                        
+                        <div class="d-flex flex-column justify-content-center px-2 align-items-end" style="width: 200px;">
+                            <h3 class="fs-6 text-wrap fw-semibold">{{ merk_kendaraan }}</h3>
+                        </div>
+                    </div>          
                 </div>
             </div>
         </div>
@@ -260,7 +308,7 @@
         <form id="form-tpel-pesanan-list" method="POST">
           {% csrf_token %}
           <div class="pt-2"></div>
-          <button type="submit" class="btn btn-primary" style="width: 100%;">Konfirmasi Pembayaran</button>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Menuju Daftar Pesanan</button>
           <div class="pt-3"></div>
         </form>
     </div>    
