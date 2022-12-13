@@ -19,8 +19,8 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <a class="dropdown-item" href="{% url 'trigger_5:show_kategori_restoran' %}">Daftar Kategori Restoran</a>
                   <a class="dropdown-item" href="{% url 'trigger_5:create_kategori_restoran' %}">Buat Kategori Restoran</a>
-                  <a class="dropdown-item" href="#">Daftar Kategori Makanan</a>
-                  <a class="dropdown-item" href="#">Buat Kategori Makanan</a>
+                  <a class="dropdown-item" href="{% url 'trigger_4:list-kategori-makanan' %}">Daftar Kategori Makanan</a>
+                  <a class="dropdown-item" href="{% url 'trigger_4:form-kategori-makanan' %}">Buat Kategori Makanan</a>
                   <a class="dropdown-item" href="{% url 'trigger_5:show_bahan_makanan' %}">Daftar Bahan Makanan</a>
                   <a class="dropdown-item" href="{% url 'trigger_5:create_bahan_makanan' %}">Buat Bahan Makanan</a>
                   <a class="dropdown-item" href="#">Daftar Restoran dan Makanan</a>
