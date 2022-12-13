@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-_+6=32=z94-5el2f7h8ke8cd=52=hh9tqq=&5g#%vtc42la$k)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['sirest-web.up.railway.app']
+ALLOWED_HOSTS = [
+    "https://sirest-web.up.railway.app",
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
+]
 
 
 # Application definition
