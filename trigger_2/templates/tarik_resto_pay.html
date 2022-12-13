@@ -16,11 +16,11 @@
 
 {% block content %}
 
-{% if role == 'Pelanggan' %}
+{% if role == 'customer' %}
     {% include 'navbar_pelanggan.html' %}
-{% elif role == 'Restoran' %}
+{% elif role == 'restaurant' %}
     {% include 'navbar_restoran.html' %}
-{% elif role == 'Kurir' %}
+{% elif role == 'courier' %}
     {% include 'navbar_kurir.html' %}
 {% endif %}
 
