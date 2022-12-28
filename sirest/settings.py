@@ -86,9 +86,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'db22a011', 
         'USER': 'postgres',
-        'PASSWORD': '2Pd3U4EMYczvOcVCfd28',
-        'HOST': 'containers-us-west-141.railway.app', 
-        'PORT': '6749',
+        'PASSWORD': 'ouK1MJGF4Plp6CN0HaHm',
+        'HOST': 'containers-us-west-132.railway.app', 
+        'PORT': '6695',
         'DATABASE': 'db22a011'
     }
 }
