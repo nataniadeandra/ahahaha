@@ -113,7 +113,13 @@
                 
                 <div class="d-flex flex-row justify-content-start p-2" style="width: 200px;">
                     <div style="width: 60%;">
-                        <a href="../detail_riwayat_transaksi/1/" type="button" class="btn btn-primary">Detail</a>
+                        {% if p.restoran == 1 %}
+                        <a href="../../dashboard/detail/restoran/{{p.email}}/" type="button" class="btn btn-primary">Detail</a>
+                        {% elif p.kurir == 1 %}
+                        <a href="../../dashboard/detail/kurir/{{p.email}}/" type="button" class="btn btn-primary">Detail</a>
+                        {% elif p.pelanggan == 1 %}
+                        <a href="../../dashboard/detail/pelanggan/{{p.email}}/" type="button" class="btn btn-primary">Detail</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
