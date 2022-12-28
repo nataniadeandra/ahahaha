@@ -6,9 +6,9 @@ from psycopg2 import Error
 try:
 
     connection = psycopg2.connect(user="postgres",
-                        password="2Pd3U4EMYczvOcVCfd28",
-                        host="containers-us-west-141.railway.app",
-                        port="6749",
+                        password="ouK1MJGF4Plp6CN0HaHm",
+                        host="containers-us-west-132.railway.app",
+                        port="6695",
                         database="db22a011")
 
     # Create a cursor to perform database operations
